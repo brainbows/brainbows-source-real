@@ -26,3 +26,25 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+#user-home {
+  background: fixed center no-repeat #135213;
+  color: white;
+}
+
+.card-header {
+  background-color: #C9F30C !important;
+}
+
+.card-body {
+  background-color: #471DE2;
+}
+
+.button {
+  background-color: #23591e !important;
+}
+
+#user-cards {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
