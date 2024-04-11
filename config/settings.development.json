@@ -14,7 +14,7 @@
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com",
-      "level": "Freshman", "grasshopper": "ICS 211", "sensei": "ICS 111"
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
     }
   ]
 }

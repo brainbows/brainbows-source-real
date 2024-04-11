@@ -17,17 +17,20 @@ class StudentsCollection {
       level: {
         type: String,
         allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
-        defaultValue: '',
       },
       grasshopper: {
+        type: Array,
+      },
+      'grasshopper.$': {
         type: String,
         allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
-        defaultValue: '',
       },
       sensei: {
+        type: Array,
+      },
+      'sensei.$': {
         type: String,
         allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
-        defaultValue: '',
       },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.

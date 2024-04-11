@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
 import { PersonFill, PeopleFill, CalendarFill, GearFill, ClockHistory, CheckLg } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 /* A simple static component to render some text for the landing page. */
 const UserHome = () => (
@@ -13,7 +14,7 @@ const UserHome = () => (
             <h4>Profile</h4>
           </Card.Header>
           <Card.Body>
-            <Button>Edit Profile</Button>
+            <Link to="/edit"><Button>Edit Profile</Button></Link>
           </Card.Body>
         </Card>
       </Col>
