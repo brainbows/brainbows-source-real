@@ -13,12 +13,10 @@ import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstra
 const SignUp = ({ location }) => {
   const [error, setError] = useState('');
   const [redirectToReferer, setRedirectToRef] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const schema = new SimpleSchema({
-    email: {
-      type: String;
-      
-    }
+    email: String,
     password: String,
   });
 
@@ -27,6 +25,11 @@ const SignUp = ({ location }) => {
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
     const { email, password } = doc;
+    if (!email.includes('@hawaii.edu')) {
+      setError('sign up with your @hawaii.edu email account');
+      return;
+    }
+    setIsSubmitting(true);
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         setError(err.reason);
@@ -56,7 +59,7 @@ const SignUp = ({ location }) => {
                 <TextField name="email" placeholder="Enter your .edu email" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <SubmitField />
+                <SubmitField disabled={isSubmitting} /> {/* Disable submit button when submitting */}
               </Card.Body>
             </Card>
           </AutoForm>
