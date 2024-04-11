@@ -1,9 +1,10 @@
 /* Use Open Sans as the default sans serif font. */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+@import url("https://fonts.google.com/specimen/Varela+Round?query=round");
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
+  --matr-navbar-bg: #778577;
   --matr-navbar-bg-rgb: 236, 236, 236;
 }
 
@@ -25,4 +26,31 @@ body {
   color: var(--bs-dark);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+#user-home {
+  background: fixed center no-repeat #135213;
+  color: white;
+}
+
+#user-home .card-header {
+  background-color: #C9F30C !important;
+}
+
+#user-home .card-body {
+  background-color: #471DE2;
+}
+
+#user-home .button {
+  background-color: #23591e !important;
+}
+
+#landing-page {
+  background-color: #135213;
+  color: white;
+}
+
+#landing-title {
+  font-family: VarelaRound, OpenSans;
+  font-size: 80px;
 }
