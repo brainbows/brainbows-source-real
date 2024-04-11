@@ -16,16 +16,9 @@ const SignUp = ({ location }) => {
 
   const schema = new SimpleSchema({
     email: {
-      type: String,
-      regEx: SimpleSchema.RegEx.EmailWithTLD,
-      custom() {
-        const email = this.value
-        if (!email.includes('@hawaii.edu')) {
-          return 'Please use a valid @hawaii.edu email address';
-        }
-        return null;
-      },
-    },
+      type: String;
+      
+    }
     password: String,
   });
 
@@ -34,10 +27,6 @@ const SignUp = ({ location }) => {
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
     const { email, password } = doc;
-    if (!email.includes('@hawaii.edu')) {
-      setError('Please use a valid hawaii.edu email');
-      return;
-    }
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         setError(err.reason);
@@ -47,6 +36,7 @@ const SignUp = ({ location }) => {
       }
     });
   };
+
   /* Display the signup form. Redirect to add page after successful registration and login. */
   const { from } = location?.state || { from: { pathname: '/add' } };
   // if correct authentication, redirect to from: page instead of signup screen
@@ -63,7 +53,7 @@ const SignUp = ({ location }) => {
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
             <Card>
               <Card.Body>
-                <TextField name="email" placeholder="Enter your hawaii.edu email address" />
+                <TextField name="email" placeholder="Enter your .edu email" />
                 <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
                 <SubmitField />
