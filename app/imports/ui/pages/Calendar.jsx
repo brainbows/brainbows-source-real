@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import EventMod from './.../components/EventMod';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import swal from 'sweetalert';
+import { Meteor } from 'meteor/meteor';
+import { Stuffs } from '../../api/stuff/Stuff';
+import EventMod from './EventMod';
 
 const EventSchema = new SimpleSchema({
   title: String,
@@ -16,17 +18,29 @@ const EventSchema = new SimpleSchema({
   },
 });
 
-const bridge = new SimpleSchema2Bridge(EventSchema);
-
 const Calendar = () => {
   const [openMod, setOpenMod] = useState(false);
 
   const handleDateClick = () => {
+    console.log('Date clicked!');
     setOpenMod(true);
   };
 
-  const submit = (eventData) => {
+  const submit = (eventData, formRef) => {
     const { title, startTime, endTime, description } = eventData;
+    const owner = Meteor.user().username;
+    EventSchema.validate(eventData);
+    Stuffs.collection.insert(
+      { title, startTime, endTime, description, owner },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Item added successfully', 'success');
+          formRef.reset();
+        }
+      },
+    );
     setOpenMod(false);
   };
 

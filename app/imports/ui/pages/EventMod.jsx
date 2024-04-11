@@ -6,7 +6,6 @@ const EventMod = ({ isOpen, onClose, onSubmit }) => {
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [description, setDescription] = useState('');
-  const [openMod, setOpenMod] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
