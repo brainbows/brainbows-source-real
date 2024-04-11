@@ -32,19 +32,14 @@ body {
   color: white;
 }
 
-.card-header {
+#user-home .card-header {
   background-color: #C9F30C !important;
 }
 
-.card-body {
+#user-home .card-body {
   background-color: #471DE2;
 }
 
-.button {
+#user-home .button {
   background-color: #23591e !important;
-}
-
-#user-cards {
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
