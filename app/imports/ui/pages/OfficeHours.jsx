@@ -4,10 +4,10 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Stuffs } from '../../api/stuff/Stuff';
 import LoadingSpinner from '../components/LoadingSpinner';
-import Contact from '../components/Contact';
+import ProfessorCards from '../components/ProfessorCards';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-const ListContacts = () => {
+const OfficeHours = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -57,7 +57,7 @@ const ListContacts = () => {
             <h2>Professor & TA Office Hours</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {contacts.map((contact, index) => (<Col key={index}><Contact contact={contact} /></Col>))}
+            {contacts.map((contact, index) => (<Col key={index}><ProfessorCards contact={contact} /></Col>))}
           </Row>
         </Col>
       </Row>
@@ -65,4 +65,4 @@ const ListContacts = () => {
   ) : <LoadingSpinner />);
 };
 
-export default ListContacts;
+export default OfficeHours;

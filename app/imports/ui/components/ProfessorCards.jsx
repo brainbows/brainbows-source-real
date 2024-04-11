@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Card, Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Contact = ({ contact }) => (
+const ProfessorCards = ({ contact }) => (
   <Card>
     <Card.Header>
       <Image src={contact.image} width={75} />
@@ -22,7 +22,7 @@ const Contact = ({ contact }) => (
 );
 
 // Require a document to be passed to this component.
-Contact.propTypes = {
+ProfessorCards.propTypes = {
   contact: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
@@ -35,4 +35,4 @@ Contact.propTypes = {
   }).isRequired,
 };
 
-export default Contact;
+export default ProfessorCards;
