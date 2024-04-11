@@ -19,8 +19,8 @@ const SignUp = ({ location }) => {
       type: String,
       regEx: SimpleSchema.RegEx.EmailWithTLD,
       custom() {
-        const emai
-        if (!this.value.includes('@hawaii.edu')) {
+        const email = this.value
+        if (!email.includes('@hawaii.edu')) {
           return 'Please use a valid @hawaii.edu email address';
         }
         return null;
