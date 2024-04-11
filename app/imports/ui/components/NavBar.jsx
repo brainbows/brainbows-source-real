@@ -16,14 +16,16 @@ const NavBar = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>meteor-application-template-react</h2>
+          <h2>Brainbows</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Add Stuff</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">List Stuff</Nav.Link>,
+              <Nav.Link id="profile-nav" as={NavLink} to="/add" key="add">Profile</Nav.Link>,
+              <Nav.Link id="match-nav" as={NavLink} to="/list" key="list">Match</Nav.Link>,
+              <Nav.Link id="dashboard-nav" as={NavLink} to="/list" key="list">Dashboard</Nav.Link>,
+              <Nav.Link id="calendar-nav" as={NavLink} to="/list" key="list">Calendar</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
