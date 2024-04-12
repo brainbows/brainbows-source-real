@@ -26,3 +26,8 @@ body {
   padding-top: 10px;
   padding-bottom: 20px;
 }
+
+body {
+  --bs-light-rgb: var(--matr-navbar-bg-rgb);
+  background-color: #135213 !important;
+}
