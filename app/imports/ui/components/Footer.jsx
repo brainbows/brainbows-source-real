@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { CardSubtitle, Col, Container, Row } from 'react-bootstrap';
 import { Telephone, Envelope } from 'react-bootstrap-icons';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
@@ -7,7 +7,16 @@ const Footer = () => (
   <footer className="mt-auto py-3 bg-light">
     <Container>
       <Col className="text-center">
-        Contact Us
+        <CardSubtitle>Brainbows</CardSubtitle>
+        {' '}
+        <br />
+        Information & Computer Sciences
+        {' '}
+        <br />
+        University of Hawaii at Manoa
+        {' '}
+        <br />
+        Project Homepage
         {' '}
         <hr />
         <Row>
