@@ -45,7 +45,7 @@ const Calendar = () => {
   };
 
   return (
-    <div>
+    <div id="calendar-page" className="fullCalendar">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={handleDateClick}
