@@ -15,6 +15,10 @@
     {
       "name": "John Doe","owner": "john@foo.com",
       "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
+    },
+    {
+      "name": "Foo Bar","owner": "admin@foo.com",
+      "level": "Sophomore", "grasshopper": ["ICS 111"], "sensei": ["ICS 211"]
     }
   ]
 }
