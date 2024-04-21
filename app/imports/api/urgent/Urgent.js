@@ -14,7 +14,7 @@ class UrgentCollection {
     this.schema = new SimpleSchema({
       name: String,
       owner: String,
-      class: {
+      course: {
         type: String,
         allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
       },

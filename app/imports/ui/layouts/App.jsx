@@ -21,6 +21,7 @@ import UserHome from '../pages/UserHome';
 import EditProfile from '../pages/EditProfile';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import Leaderboard from '../pages/Leaderboard';
+import AddUrgentSesh from '../pages/AddUrgentSesh';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/list" element={<ProtectedRoute><ListStuff /></ProtectedRoute>} />
           <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
+          <Route path="/add-urgent-sesh" element={<ProtectedRoute><AddUrgentSesh /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/home-page" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
           <Route path="/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />

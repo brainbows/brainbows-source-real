@@ -18,24 +18,24 @@
   "defaultUrgent": [
     {
       "name": "John Doe", "owner": "john@foo.com",
-      "class": "ICS 111",
+      "course": "ICS 111",
       "topic": "I need help with arrays",
-      "startTime": "1:30 PM",
-      "endTime": "2:30 PM"
+      "startTime": "1 pm",
+      "endTime": "2 pm"
     },
     {
       "name": "Admin", "owner": "admin@foo.com",
-      "class": "ICS 211",
+      "course": "ICS 211",
       "topic": "I need help with objects",
-      "startTime": "2:30 PM",
-      "endTime": "3:30 PM"
+      "startTime": "2 pm",
+      "endTime": "3 pm"
     },
     {
       "name": "Admin", "owner": "admin@foo.com",
-      "class": "ICS 111",
+      "course": "ICS 111",
       "topic": "I need help with blah blah",
-      "startTime": "1:30 PM",
-      "endTime": "3:30 PM"
+      "startTime": "1 pm",
+      "endTime": "3 pm"
     }
   ]
 }
