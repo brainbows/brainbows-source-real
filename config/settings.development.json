@@ -4,17 +4,38 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
 
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ],
-
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com",
       "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
+    },
+    {
+      "name": "admin","owner": "admin@foo.com",
+      "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"]
+    }
+  ],
+
+  "defaultUrgent": [
+    {
+      "name": "John Doe", "owner": "john@foo.com",
+      "class": "ICS 111",
+      "topic": "I need help with arrays",
+      "startTime": "1:30 PM",
+      "endTime": "2:30 PM"
+    },
+    {
+      "name": "Admin", "owner": "admin@foo.com",
+      "class": "ICS 211",
+      "topic": "I need help with objects",
+      "startTime": "2:30 PM",
+      "endTime": "3:30 PM"
+    },
+    {
+      "name": "Admin", "owner": "admin@foo.com",
+      "class": "ICS 111",
+      "topic": "I need help with blah blah",
+      "startTime": "1:30 PM",
+      "endTime": "3:30 PM"
     }
   ]
 }
