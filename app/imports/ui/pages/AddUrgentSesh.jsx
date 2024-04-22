@@ -20,18 +20,19 @@ const formSchema = new SimpleSchema({
   topic: String,
   startTime: {
     type: String,
-    allowedValues: ['7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 apm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm', '9 pm'],
+    allowedValues: ['7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm', '9 pm'],
   },
   endTime: {
     type: String,
-    allowedValues: ['7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 apm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm', '9 pm'],
+    allowedValues: ['7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', '8 pm', '9 pm'],
   },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 function getSenseiData(course) {
-  const senseis = _.pluck(Students.collection.find({ sensei: [course] }).fetch(), 'owner');
+  const senseis = _.pluck(Students.collection.find({ sensei: [`${course}`] }).fetch(), 'owner');
+  console.log(senseis);
   return senseis;
 }
 
@@ -42,16 +43,6 @@ const AddUrgentSesh = () => {
   const submit = (data, formRef) => {
     const { name, course, topic, startTime, endTime } = data;
     const owner = Meteor.user().username;
-    UrgentSesh.collection.insert(
-      { name, course, topic, startTime, endTime, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Urgent Sesh created successfully, Senseis are notified', 'success');
-        }
-      },
-    );
     getSenseiData(course).forEach((sensei) => UrgentNotification.collection.insert(
       { from: owner, owner: sensei, course, topic, startTime, endTime },
       (error) => {
@@ -63,6 +54,16 @@ const AddUrgentSesh = () => {
         }
       },
     ));
+    UrgentSesh.collection.insert(
+      { name, course, topic, startTime, endTime, owner },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Urgent Sesh created successfully, Senseis are notified', 'success');
+        }
+      },
+    );
   };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
