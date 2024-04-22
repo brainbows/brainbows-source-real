@@ -3,9 +3,12 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
+import { _ } from 'meteor/underscore';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { UrgentSesh } from '../../api/urgent/Urgent';
+import { Students } from '../../api/student/Student';
+import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -27,6 +30,11 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
+function getSenseiData(course) {
+  const senseis = _.pluck(Students.collection.find({ sensei: [course] }).fetch(), 'owner');
+  return senseis;
+}
+
 /* Renders the AddStuff page for adding a document. */
 const AddUrgentSesh = () => {
 
@@ -41,10 +49,20 @@ const AddUrgentSesh = () => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Urgent Sesh created successfully, Senseis are notified', 'success');
-          formRef.reset();
         }
       },
     );
+    getSenseiData(course).forEach((sensei) => UrgentNotification.collection.insert(
+      { from: owner, owner: sensei, course, topic, startTime, endTime },
+      (error) => {
+        if (error) {
+          swal('Error', error.message, 'error');
+        } else {
+          swal('Success', 'Urgent Sesh created successfully, Senseis are notified', 'success');
+          formRef.reset();
+        }
+      },
+    ));
   };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
@@ -53,7 +71,7 @@ const AddUrgentSesh = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Stuff</h2></Col>
+          <Col className="text-center"><h2>Create Urgent Sesh</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
