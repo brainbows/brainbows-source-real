@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Students } from '../../api/student/Student';
 import { UrgentSesh } from '../../api/urgent/Urgent';
+import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 
 /* eslint-disable no-console */
 
@@ -28,5 +29,18 @@ if (UrgentSesh.collection.find().count() === 0) {
   if (Meteor.settings.defaultUrgent) {
     console.log('Creating default Urgent Sessions.');
     Meteor.settings.defaultUrgent.forEach(urgent => addUrgent(urgent));
+  }
+}
+
+const addUrgentNotif = (urgentNotif) => {
+  console.log(`  Adding: ${urgentNotif.from} (${urgentNotif.owner})`);
+  UrgentNotification.collection.insert(urgentNotif);
+};
+
+// Initialize the StuffsCollection if empty.
+if (UrgentNotification.collection.find().count() === 0) {
+  if (Meteor.settings.defaultUrgentNotification) {
+    console.log('Creating default Urgent Notifications.');
+    Meteor.settings.defaultUrgentNotification.forEach(urgentNotif => addUrgentNotif(urgentNotif));
   }
 }

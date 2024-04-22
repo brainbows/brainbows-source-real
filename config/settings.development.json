@@ -7,7 +7,7 @@
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
+      "level": "Freshman", "grasshopper": ["ICS 110P"], "sensei": ["ICS 111", "ICS 211"]
     },
     {
       "name": "admin","owner": "admin@foo.com",
@@ -18,7 +18,7 @@
   "defaultUrgent": [
     {
       "name": "John Doe", "owner": "john@foo.com",
-      "course": "ICS 111",
+      "course": "ICS 110P",
       "topic": "I need help with arrays",
       "startTime": "1 pm",
       "endTime": "2 pm"
@@ -32,6 +32,30 @@
     },
     {
       "name": "Admin", "owner": "admin@foo.com",
+      "course": "ICS 111",
+      "topic": "I need help with blah blah",
+      "startTime": "1 pm",
+      "endTime": "3 pm"
+    }
+  ],
+
+  "defaultUrgentNotification": [
+    {
+      "from": "john@foo.com", "owner": "admin@foo.com",
+      "course": "ICS 111",
+      "topic": "I need help with arrays",
+      "startTime": "1 pm",
+      "endTime": "2 pm"
+    },
+    {
+      "from": "admin@foo.com", "owner": "john@foo.com",
+      "course": "ICS 211",
+      "topic": "I need help with objects",
+      "startTime": "2 pm",
+      "endTime": "3 pm"
+    },
+    {
+      "from": "admin@foo.com", "owner": "john@foo.com",
       "course": "ICS 111",
       "topic": "I need help with blah blah",
       "startTime": "1 pm",
