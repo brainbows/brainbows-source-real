@@ -14,6 +14,7 @@ class StudentsCollection {
     this.schema = new SimpleSchema({
       name: String,
       owner: String,
+      image: String,
       level: {
         type: String,
         allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],

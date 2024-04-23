@@ -22,6 +22,7 @@ StudentsAdmin.propTypes = {
   students: PropTypes.shape({
     name: PropTypes.string,
     owner: PropTypes.string,
+    image: PropTypes.string,
     description: PropTypes.string,
     level: {
       type: String,
