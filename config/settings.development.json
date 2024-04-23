@@ -13,12 +13,12 @@
 
   "defaultStudents": [
     {
-      "name": "John Doe","owner": "john@foo.com",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
+      "name": "John Doe", "owner": "john@foo.com", "image":"https://i.pinimg.com/originals/b9/1a/f9/b91af934f85c139a63474238836a6aec.jpg",
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "You like coding you freaky coder?"
     },
     {
-      "name": "Foo Bar","owner": "admin@foo.com",
-      "level": "Sophomore", "grasshopper": ["ICS 111"], "sensei": ["ICS 211"]
+      "name": "Foo Bar", "owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Sophomore", "grasshopper": ["ICS 111"], "sensei": ["ICS 211"], "description": "erm.. what the sigma"
     }
   ]
 }
