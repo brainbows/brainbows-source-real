@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Student = ({ students }) => (
+const Students = ({ students }) => (
   <Card className="h-100">
     <Card.Header>
       <Card.Title>{students.name}</Card.Title>
@@ -18,7 +18,7 @@ const Student = ({ students }) => (
 );
 
 // Require a document to be passed to this component.
-Student.propTypes = {
+Students.propTypes = {
   students: PropTypes.shape({
     name: PropTypes.string,
     owner: PropTypes.string,
@@ -44,4 +44,4 @@ Student.propTypes = {
   }).isRequired,
 };
 
-export default Student;
+export default Students;

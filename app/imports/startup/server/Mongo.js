@@ -30,15 +30,3 @@ if (Students.collection.find().count() === 0) {
     Meteor.settings.defaultStudents.forEach(student => addStudent(student));
   }
 }
-
-const addMatch = (Student) => {
-  console.log(` Adding: ${Student.name}`);
-  Student.collection.insert(Student);
-};
-
-if (Students.collection.find().count() === 0) {
-  if (Meteor.settings.defaultStudents) {
-    console.log('Creating default Students.');
-    Meteor.settings.defaultStudents.forEach(Student => addMatch(Student));
-  }
-}

@@ -25,7 +25,7 @@ const UserHome = () => (
             <h4>Match</h4>
           </Card.Header>
           <Card.Body>
-            <Button>Find other Study Buddies</Button>
+            <Button href="admin">Find other Study Buddies</Button>
           </Card.Body>
         </Card>
       </Col>
