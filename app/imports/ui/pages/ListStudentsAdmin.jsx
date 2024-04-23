@@ -31,7 +31,7 @@ const ListStudentsAdmin = () => {
             <h2>List Students</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {students.map((student) => (<Col key={student._id}><StudentsAdmin students={Students} /></Col>))}
+            {students.map((student) => (<Col key={student._id}><StudentsAdmin students={student} /></Col>))}
           </Row>
         </Col>
       </Row>
