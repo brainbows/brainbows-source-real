@@ -21,6 +21,8 @@ import UserHome from '../pages/UserHome';
 import EditProfile from '../pages/EditProfile';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import Leaderboard from '../pages/Leaderboard';
+import Goals from '../pages/AddGoals';
+import ViewGoals from '../pages/ViewGoals';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -47,6 +49,8 @@ const App = () => {
           <Route path="/home-page" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
           <Route path="/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
+          <Route path="/goals" element={<ProtectedRoute><Goals /></ProtectedRoute>} />
+          <Route path="/viewgoals" element={<ProtectedRoute><ViewGoals /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
