@@ -17,7 +17,6 @@ const ProfessorCards = ({ contact }) => (
       <Card.Subtitle>Office Hours: </Card.Subtitle>
       <Card.Text>{contact.officeHours}</Card.Text>
     </Card.Body>
-    <Button>SCHEDULE</Button>
   </Card>
 );
 
