@@ -23,6 +23,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import UserHome from '../pages/UserHome';
 import EditProfile from '../pages/EditProfile';
 import Leaderboard from '../pages/Leaderboard';
+import ICSClasses from '../pages/ICSClasses';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
           <Route path="/list" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
+          <Route path="/classes" element={<ProtectedRoute><ICSClasses /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
