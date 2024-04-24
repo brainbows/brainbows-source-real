@@ -6,7 +6,6 @@ import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
 import Calendar from '../pages/Calendar';
 import AdminHome from '../pages/AdminHome';
 import OfficeHours from '../pages/OfficeHours';
