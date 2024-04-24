@@ -5,6 +5,7 @@ import { navBar } from './navbar.component';
 import { userHomePage } from './userhome.page';
 import { leaderboardPage } from './leaderboard.page';
 import { calendarPage } from './calendar.page';
+import { officeHoursPage } from './officehours.page';
 
 /* global fixture:false, test:false */
 
@@ -43,4 +44,10 @@ test('Test that the calendar page shows up', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoCalendarPage(testController);
   await calendarPage.isDisplayed(testController);
+});
+test('Test that the office hours page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoOfficeHoursPage(testController);
+  await officeHoursPage.isDisplayed(testController);
 });

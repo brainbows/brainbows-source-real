@@ -57,12 +57,20 @@ class NavBar {
     await testController.click('#leaderboard-nav');
   }
 
+  async gotoOfficeHoursPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#list-stuff-nav');
+  }
+
   async gotoCalendarPage(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#calendar-nav');
+    await testController.click('#list-stuff-nav');
   }
 }
 

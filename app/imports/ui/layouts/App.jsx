@@ -10,7 +10,6 @@ import Calendar from '../pages/Calendar';
 import AdminHome from '../pages/AdminHome';
 import OfficeHours from '../pages/OfficeHours';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
