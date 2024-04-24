@@ -14,8 +14,8 @@
       "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "help!!!"
     },
     {
-      "name": "admin","owner": "admin@foo.com",
-      "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"]
+      "name": "admin","owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"], "description": "admin"
     }
   ],
 
