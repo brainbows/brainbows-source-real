@@ -5,8 +5,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff';
 import EventMod from './EventMod';
+import { Students } from '../../api/student/Student';
 
 const EventSchema = new SimpleSchema({
   title: String,
@@ -30,7 +30,7 @@ const Calendar = () => {
     const { title, startTime, endTime, description } = eventData;
     const owner = Meteor.user().username;
     EventSchema.validate(eventData);
-    Stuffs.collection.insert(
+    Students.collection.insert(
       { title, startTime, endTime, description, owner },
       (error) => {
         if (error) {

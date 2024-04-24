@@ -9,8 +9,6 @@ import Landing from '../pages/Landing';
 import Calendar from '../pages/Calendar';
 import AdminHome from '../pages/AdminHome';
 import OfficeHours from '../pages/OfficeHours';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';

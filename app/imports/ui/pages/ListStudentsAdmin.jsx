@@ -6,13 +6,13 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { Students } from '../../api/student/Student';
 import StudentsAdmin from '../components/StudentsAdmin';
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Admin documents. Use <AdminItem> to render each row. */
 const ListStudentsAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, students } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
+    // Get access to Admin documents.
     const subscription = Meteor.subscribe(Students.adminPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();

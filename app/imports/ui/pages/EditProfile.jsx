@@ -11,14 +11,14 @@ import { Students } from '../../api/student/Student';
 
 const bridge = new SimpleSchema2Bridge(Students.schema);
 
-/* Renders the EditStuff page for editing a single document. */
+/* Renders the EditProfile page for editing a single document. */
 const EditProfile = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
-  // console.log('EditStuff', _id);
+  // console.log('EditProfile', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
-    // Get access to Stuff documents.
+    // Get access to Profile documents.
     const subscription = Meteor.subscribe(Students.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
@@ -29,7 +29,7 @@ const EditProfile = () => {
       ready: rdy,
     };
   }, [_id]);
-  // console.log('EditStuff', doc, ready);
+  // console.log('EditProfile', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
     const { name, owner, level, grasshopper, sensei } = data;
