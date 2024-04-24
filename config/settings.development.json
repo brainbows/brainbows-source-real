@@ -7,11 +7,11 @@
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "HELP ME"
     },
     {
       "name": "steve fart", "owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"]
+      "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "help!!!"
     },
     {
       "name": "admin","owner": "admin@foo.com",
