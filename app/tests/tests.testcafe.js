@@ -6,6 +6,7 @@ import { userHomePage } from './userhome.page';
 import { leaderboardPage } from './leaderboard.page';
 import { calendarPage } from './calendar.page';
 import { officeHoursPage } from './officehours.page';
+import { editProfilePage } from './editprofile.page';
 
 /* global fixture:false, test:false */
 
@@ -50,4 +51,10 @@ test('Test that the office hours page shows up', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoOfficeHoursPage(testController);
   await officeHoursPage.isDisplayed(testController);
+});
+test('Test that the edit page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoEditProfilePage(testController);
+  await editProfilePage.isDisplayed(testController);
 });

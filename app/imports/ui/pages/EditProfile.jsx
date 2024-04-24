@@ -45,11 +45,11 @@ const EditProfile = () => {
           <Col className="text-center"><h2 id="edit-title">Edit Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
-              <Row>
+              <Row id="name">
                 <Col><TextField name="name" showInlineError placeholder="Your name" /></Col>
                 <Col><TextField name="owner" showInlineError placeholder="Your name" disabled /></Col>
               </Row>
-              <Row>
+              <Row id="level">
                 <Col><SelectField name="level" showInlineError /></Col>
               </Row>
               <SelectField
