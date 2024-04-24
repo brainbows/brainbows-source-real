@@ -35,7 +35,7 @@ const UserHome = () => {
               <h4>Profile</h4>
             </Card.Header>
             <Card.Body>
-              <Link to={`/edit/${student._id}`}><Button>Edit Profile</Button></Link>
+              <Link id="edit-user-home" to={`/edit/${student._id}`}><Button>Edit Profile</Button></Link>
             </Card.Body>
           </Card>
         </Col>
