@@ -49,6 +49,15 @@ class NavBar {
     await testController.click('#home-nav');
   }
 
+  async gotoEditProfilePage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#home-nav');
+    await testController.click('#edit-user-home');
+  }
+
   async gotoLeaderboardPage(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
     if (!visible) {
