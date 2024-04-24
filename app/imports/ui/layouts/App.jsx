@@ -9,8 +9,6 @@ import Landing from '../pages/Landing';
 import Calendar from '../pages/Calendar';
 import AdminHome from '../pages/AdminHome';
 import OfficeHours from '../pages/OfficeHours';
-import ListStuffAdmin from '../pages/ListStuffAdmin';
-import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
 import SignUp from '../pages/SignUp';
 import SignOut from '../pages/SignOut';
@@ -50,8 +48,8 @@ const App = () => {
           <Route path="/home-page" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
           <Route path="/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStudentsAdmin /></AdminProtectedRoute>} />
-          <Route path="/adminhome" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
+          <Route path="/adminStudent" element={<AdminProtectedRoute ready={ready}><ListStudentsAdmin /></AdminProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

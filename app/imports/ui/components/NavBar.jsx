@@ -25,10 +25,10 @@ const NavBar = () => {
               <Nav.Link id="home-nav" as={NavLink} to="/home-page" key="home-page">Home</Nav.Link>,
               <Nav.Link id="calendar-nav" as={NavLink} to="/calendar" key="calendar">Calendar</Nav.Link>,
               <Nav.Link id="leaderboard-nav" as={NavLink} to="/leaderboard" key="leaderboard">Leaderboard</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">Office Hours</Nav.Link>,
+              <Nav.Link id="list-OfficeHours-nav" as={NavLink} to="/listOH" key="list">Office Hours</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+              <Nav.Link id="list-students-admin-nav" as={NavLink} to="/listStudent" key="admin">Admin</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">
