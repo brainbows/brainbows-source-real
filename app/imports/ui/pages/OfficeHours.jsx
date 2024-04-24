@@ -5,6 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Stuffs } from '../../api/stuff/Stuff';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ProfessorCards from '../components/ProfessorCards';
+import { Students } from '../../api/student/Student';
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const OfficeHours = () => {
@@ -13,13 +14,14 @@ const OfficeHours = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Stuffs.userPublicationName);
+    const subscription = Meteor.subscribe(Students.userPublicationName);
+    const owner = Meteor.user().username;
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Stuff documents
-    const stuffItems = Stuffs.collection.find({}).fetch();
+    const studentItems = Students.collection.findOne({ owner: owner });
     return {
-      stuffs: stuffItems,
+      student: studentItems,
       ready: rdy,
     };
   }, []);
