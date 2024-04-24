@@ -1,18 +1,7 @@
 import { Selector } from 'testcafe';
 
 class NavBar {
-
-  /** If someone is logged in, then log them out, otherwise do nothing. */
-  async ensureLogout(testController) {
-    const loggedInUser = await Selector('#navbar-current-user').exists;
-    if (loggedInUser) {
-      await testController.click('#navbar-current-user');
-      await testController.click('#navbar-sign-out');
-    }
-  }
-
   async gotoSignInPage(testController) {
-    await this.ensureLogout(testController);
     const visible = await Selector('#basic-navbar-nav').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
@@ -44,13 +33,36 @@ class NavBar {
 
   /** Pull down login menu, go to sign up page. */
   async gotoSignUpPage(testController) {
-    await this.ensureLogout(testController);
     const visible = await Selector('#basic-navbar-nav').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
+  }
+
+  async gotoUserHomePage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#home-nav');
+  }
+
+  async gotoLeaderboardPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#leaderboard-nav');
+  }
+
+  async gotoCalendarPage(testController) {
+    const visible = await Selector('#basic-navbar-nav').visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click('#calendar-nav');
   }
 }
 
