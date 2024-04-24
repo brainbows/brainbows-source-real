@@ -3,7 +3,6 @@ import { Roles } from 'meteor/alanning:roles';
 import { Students } from '../../api/student/Student';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 
-
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
 Meteor.publish(Students.userPublicationName, function () {
