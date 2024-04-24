@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardSubtitle, Col, Container, Row } from 'react-bootstrap';
-import { Envelope, Telephone } from 'react-bootstrap-icons';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
