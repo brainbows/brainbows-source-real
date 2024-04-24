@@ -39,7 +39,6 @@ const UserHome = () => {
             </Card.Body>
           </Card>
         </Col>
-
         <Col xs={4}>
           <Card>
             <Card.Header>
@@ -51,7 +50,17 @@ const UserHome = () => {
             </Card.Body>
           </Card>
         </Col>
-
+      <Col xs={4}>
+        <Card>
+          <Card.Header>
+            <PeopleFill size={100} />
+            <h4>Match</h4>
+          </Card.Header>
+          <Card.Body>
+            <Button href="list">Find other Study Buddies</Button>
+          </Card.Body>
+        </Card>
+      </Col>
         <Col xs={4}>
           <Card>
             <Card.Header>

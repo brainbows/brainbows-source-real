@@ -21,6 +21,8 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import UserHome from '../pages/UserHome';
 import EditProfile from '../pages/EditProfile';
 import Leaderboard from '../pages/Leaderboard';
+import ListStudents from '../pages/ListStudents';
+import ListStudentsAdmin from '../pages/ListStudentsAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -40,18 +42,16 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
+          <Route path="/listOH" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
+          <Route path="/listStudent" element={<ProtectedRoute><ListStudents /></ProtectedRoute>} />
           <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/home-page" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
           <Route path="/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
-          <Route path="/list" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStuffAdmin /></AdminProtectedRoute>} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListStudentsAdmin /></AdminProtectedRoute>} />
+          <Route path="/adminhome" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
