@@ -13,7 +13,7 @@ class StuffsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       title: String,
-      startTime: Number,
+      startTime: String,
       endTime: String,
       description: {
         type: String,

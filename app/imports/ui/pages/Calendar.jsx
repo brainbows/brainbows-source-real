@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import SimpleSchema from 'simpl-schema';
+/* import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Stuffs } from '../../api/stuff/Stuff'; */
 import EventMod from './EventMod';
 
-const EventSchema = new SimpleSchema({
+/* const EventSchema = new SimpleSchema({
   title: String,
   startTime: Date,
   endTime: Date,
@@ -18,6 +18,8 @@ const EventSchema = new SimpleSchema({
   },
 });
 
+ */
+
 const Calendar = () => {
   const [openMod, setOpenMod] = useState(false);
 
@@ -26,7 +28,7 @@ const Calendar = () => {
     setOpenMod(true);
   };
 
-  const submit = (eventData, formRef) => {
+  /* const submit = (eventData, formRef) => {
     const { title, startTime, endTime, description } = eventData;
     const owner = Meteor.user().username;
     EventSchema.validate(eventData);
@@ -43,6 +45,13 @@ const Calendar = () => {
     );
     setOpenMod(false);
   };
+  */
+
+  const handleFormSubmit = (data) => {
+    console.log(data);
+    // You can add your logic here
+  };
+
 
   return (
     <div id="calendar-page" className="fullCalendar">
@@ -55,7 +64,7 @@ const Calendar = () => {
           { title: 'sample1', date: '2024-04-01' },
         ]}
       />
-      <EventMod isOpen={openMod} onClose={() => setOpenMod(false)} onSubmit={submit} />
+      <EventMod isOpen={openMod} onClose={() => setOpenMod(false)} onSubmit={handleFormSubmit} />
     </div>
   );
 };
