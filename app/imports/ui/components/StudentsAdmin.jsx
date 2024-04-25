@@ -21,9 +21,9 @@ const StudentsAdmin = ({ studentsAdmin }) => (
 // Require a document to be passed to this component.
 StudentsAdmin.propTypes = {
   studentsAdmin: PropTypes.shape({
-    image: PropTypes.string,
     name: PropTypes.string,
     owner: PropTypes.string,
+    image: PropTypes.string,
     level: {
       type: String,
       allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
