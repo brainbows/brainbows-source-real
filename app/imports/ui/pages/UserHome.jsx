@@ -35,11 +35,10 @@ const UserHome = () => {
               <h4>Profile</h4>
             </Card.Header>
             <Card.Body>
-              <Link to={`/edit/${student._id}`}><Button>Edit Profile</Button></Link>
+              <Link id="edit-user-home" to={`/edit/${student._id}`}><Button>Edit Profile</Button></Link>
             </Card.Body>
           </Card>
         </Col>
-
         <Col xs={4}>
           <Card>
             <Card.Header>
@@ -47,11 +46,10 @@ const UserHome = () => {
               <h4>Match</h4>
             </Card.Header>
             <Card.Body>
-              <Button>Find other Study Buddies</Button>
+              <Button href="listStudent">Find other Study Buddies</Button>
             </Card.Body>
           </Card>
         </Col>
-
         <Col xs={4}>
           <Card>
             <Card.Header>

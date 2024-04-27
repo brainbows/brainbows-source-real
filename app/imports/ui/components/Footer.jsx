@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardSubtitle, Col, Container, Row } from 'react-bootstrap';
-import { Envelope, Telephone } from 'react-bootstrap-icons';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 const Footer = () => (
@@ -21,34 +20,24 @@ const Footer = () => (
         <hr />
         <Row>
           <Col>
-            <strong>Braeden Mendoza</strong>
+            <strong><a href="https://braeden-cs.github.io/">Braeden Mendoza</a></strong>
             <br />
-            <Envelope className="icon-margin" />
-            <Telephone className="icon-margin" />
           </Col>
           <Col>
-            <strong>Yilamu Lafeier</strong>
+            <strong><a href="https://yilamulafeier.github.io/">Yilamu Lafeier</a></strong>
             <br />
-            <Envelope className="icon-margin" />
-            <Telephone className="icon-margin" />
           </Col>
           <Col>
-            <strong>Jay Suh</strong>
+            <strong><a href="https://jayssuh.github.io/">Jay Suh</a></strong>
             <br />
-            <Envelope className="icon-margin" />
-            <Telephone className="icon-margin" />
           </Col>
           <Col>
-            <strong>Hailey Fagaragan</strong>
+            <strong><a href="https://haileyfagaragan.github.io/">Hailey Fagaragan</a></strong>
             <br />
-            <Envelope className="icon-margin" />
-            <Telephone className="icon-margin" />
           </Col>
           <Col>
-            <strong>Kaelan Valencia</strong>
+            <strong><a href="https://kaelankv.github.io/">Kaelan Valencia</a></strong>
             <br />
-            <Envelope className="icon-margin" />
-            <Telephone className="icon-margin" />
           </Col>
         </Row>
       </Col>

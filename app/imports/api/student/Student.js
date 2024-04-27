@@ -7,13 +7,14 @@ import SimpleSchema from 'simpl-schema';
 class StudentsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StudentsCollection';
+    this.name = 'defaultStudents';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: String,
       owner: String,
+      image: String,
       level: {
         type: String,
         allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
@@ -32,6 +33,7 @@ class StudentsCollection {
         type: String,
         allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
       },
+      description: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
