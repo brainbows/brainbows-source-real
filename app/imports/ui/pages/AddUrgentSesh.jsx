@@ -6,9 +6,11 @@ import { Meteor } from 'meteor/meteor';
 import { _ } from 'meteor/underscore';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { useTracker } from 'meteor/react-meteor-data';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { Students } from '../../api/student/Student';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -32,13 +34,18 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 function getSenseiData(course) {
   const senseis = _.pluck(Students.collection.find({ sensei: { $in: [`${course}`] } }).fetch(), 'owner');
-  console.log(senseis);
+  // console.log(senseis);
   return senseis;
 }
 
 /* Renders the AddStuff page for adding a document. */
 const AddUrgentSesh = () => {
-  Meteor.subscribe(Students.generalPublicationName);
+  const { ready } = useTracker(() => {
+    const sub = Meteor.subscribe(Students.generalPublicationName);
+    return {
+      ready: sub.ready(),
+    };
+  }, []);
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, course, topic, startTime, endTime } = data;
@@ -68,7 +75,7 @@ const AddUrgentSesh = () => {
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
-  return (
+  return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
@@ -89,7 +96,7 @@ const AddUrgentSesh = () => {
         </Col>
       </Row>
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
 export default AddUrgentSesh;

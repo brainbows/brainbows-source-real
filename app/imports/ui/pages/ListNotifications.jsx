@@ -7,7 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 
 const MakeCard = ({ urgentNotif }) => (
-  <Col>
+  <Col className="p-3">
     <Card>
       <Card.Header>
         <Card.Title>URGENT</Card.Title>
@@ -31,7 +31,7 @@ const MakeCard = ({ urgentNotif }) => (
   </Col>
 );
 
-MakeCard.propType = {
+MakeCard.propTypes = {
   urgentNotif: PropTypes.shape({
     from: PropTypes.string,
     course: PropTypes.string,
@@ -60,7 +60,7 @@ const ListNotifications = () => {
   }, []);
   return (ready ? (
     <Container className="py-3">
-      <Row className="justify-content-center">
+      <Row xs={1} md={2} lg={4} className="justify-content-start">
         {urgentNotifs.map((urgentNotif, index) => <MakeCard key={index} urgentNotif={urgentNotif} />)}
       </Row>
     </Container>
