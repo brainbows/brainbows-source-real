@@ -38,7 +38,7 @@ MakeCard.propType = {
     topic: PropTypes.string,
     startTime: PropTypes.string,
     endTime: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */

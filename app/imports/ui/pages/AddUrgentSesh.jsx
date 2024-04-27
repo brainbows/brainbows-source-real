@@ -31,7 +31,7 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 function getSenseiData(course) {
-  const senseis = _.pluck(Students.collection.find({ sensei: [`${course}`] }).fetch(), 'owner');
+  const senseis = _.pluck(Students.collection.find({ sensei: { $in: [`${course}`] } }).fetch(), 'owner');
   console.log(senseis);
   return senseis;
 }

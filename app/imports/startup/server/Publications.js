@@ -42,7 +42,7 @@ Meteor.publish(Students.userPublicationName, function () {
   }
   return this.ready();
 });
-
+/** Define a publication to publish all students */
 Meteor.publish(Students.generalPublicationName, () => Students.collection.find());
 
 // Admin-level publication.
