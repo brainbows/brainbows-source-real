@@ -43,6 +43,8 @@ Meteor.publish(Students.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish(Students.generalPublicationName, () => Students.collection.find());
+
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Students.adminPublicationName, function () {

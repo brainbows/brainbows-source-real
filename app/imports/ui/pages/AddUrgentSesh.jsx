@@ -38,7 +38,7 @@ function getSenseiData(course) {
 
 /* Renders the AddStuff page for adding a document. */
 const AddUrgentSesh = () => {
-
+  Meteor.subscribe(Students.generalPublicationName);
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { name, course, topic, startTime, endTime } = data;
