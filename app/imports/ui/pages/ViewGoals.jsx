@@ -10,8 +10,8 @@ const ViewGoals = () => {
     if (!handler.ready()) {
       return noDataAvailable;
     }
-    const goals = Goals.collection.find().fetch();
-    return { goals };
+    const fetchedGoals = Goals.collection.find().fetch();
+    return { goals: fetchedGoals };
   });
 
   if (!ready) {
