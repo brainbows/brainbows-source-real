@@ -1,34 +1,34 @@
-// ViewGoals.jsx
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
-import { Goals } from '../../api/goals/Goals.js';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Goals } from '../../api/goals/Goals';
 
-const ViewGoals = ({ goals }) => (
-  <div>
-    <h1>View Goals</h1>
-    <ul>
-      {goals.map(goal => (
-        <li key={goal._id}>
-          Short Term: {goal.shortTermGoal}, Long Term: {goal.longTermGoal}
-        </li>
+const ViewGoals = () => {
+  const { goals, ready } = useTracker(() => {
+    const noDataAvailable = { goals: [] };
+    const handler = Meteor.subscribe('goals');
+    if (!handler.ready()) {
+      return noDataAvailable;
+    }
+    const goals = Goals.collection.find().fetch();
+    return { goals };
+  });
+
+  if (!ready) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      <h2>View Goals</h2>
+      {goals.map((goal) => (
+        <div key={goal._id}>
+          <h3>Short Term Goal: {goal.shortTermGoal}</h3>
+          <h3>Long Term Goal: {goal.longTermGoal}</h3>
+        </div>
       ))}
-    </ul>
-  </div>
-);
-
-ViewGoals.propTypes = {
-  goals: PropTypes.arrayOf(PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    shortTermGoal: PropTypes.string.isRequired,
-    longTermGoal: PropTypes.string.isRequired,
-  })).isRequired,
+    </div>
+  );
 };
 
-export default withTracker(() => {
-  Meteor.subscribe('goals');
-  return {
-    goals: Goals.collection.find({}).fetch(),
-  };
-})(ViewGoals);
+export default ViewGoals;
