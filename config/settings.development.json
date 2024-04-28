@@ -7,7 +7,7 @@
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "HELP"
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "HELP"
     },
     {
       "name": "steve fart", "owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
