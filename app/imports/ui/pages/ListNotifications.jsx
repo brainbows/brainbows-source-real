@@ -8,7 +8,7 @@ import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 
 const MakeCard = ({ urgentNotif }) => (
   <Col className="p-3">
-    <Card>
+    <Card className="h-100">
       <Card.Header>
         <Card.Title>URGENT</Card.Title>
         <Card.Subtitle>A student is in the ICSpace and needs your help</Card.Subtitle>

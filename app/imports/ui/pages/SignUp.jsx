@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Students } from '../../api/student/Student';
 
@@ -21,6 +21,7 @@ const SignUp = ({ location }) => {
     name: String,
     email: String,
     password: String,
+    image: String,
     level: {
       type: String,
       allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
@@ -39,13 +40,14 @@ const SignUp = ({ location }) => {
       type: String,
       allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
     },
+    description: String,
   });
 
   const bridge = new SimpleSchema2Bridge(schema);
 
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
   const submit = (doc) => {
-    const { name, email, level, grasshopper, sensei, password } = doc;
+    const { name, email, image, level, grasshopper, sensei, password, description } = doc;
     if (!email.includes('@hawaii.edu')) {
       setError('sign up with your @hawaii.edu email account');
       return;
@@ -60,12 +62,12 @@ const SignUp = ({ location }) => {
       }
     });
     Students.collection.insert(
-      { name, owner: email, level, grasshopper, sensei },
+      { name, owner: email, image, level, grasshopper, sensei, description },
       (err) => {
         if (err) {
           swal('Error', err.message, 'error');
         } else {
-          swal('Success', 'Item added successfully', 'success');
+          swal('Success', 'Student added successfully', 'success');
         }
       },
     );
@@ -90,6 +92,7 @@ const SignUp = ({ location }) => {
                 <TextField name="name" placeholder="Enter your first and last name" />
                 <TextField name="email" placeholder="Enter your .edu email" />
                 <TextField name="password" placeholder="Password" type="password" />
+                <TextField name="image" placeholder="Enter file of your head shot" />
                 <SelectField name="level" showInlineError />
                 <SelectField
                   name="grasshopper"
@@ -107,6 +110,7 @@ const SignUp = ({ location }) => {
                   checkboxes
                   inline
                 />
+                <LongTextField name="description" placeholder="Enter a description about you" />
                 <ErrorsField />
                 <SubmitField disabled={isSubmitting} /> {/* Disable submit button when submitting */}
               </Card.Body>

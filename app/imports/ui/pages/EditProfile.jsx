@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Card, CardGroup, Col, Container, Image, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -32,8 +32,8 @@ const EditProfile = () => {
   // console.log('EditProfile', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, owner, level, grasshopper, sensei } = data;
-    Students.collection.update(_id, { $set: { name, owner, level, grasshopper, sensei } }, (error) => (error ?
+    const { name, owner, level, grasshopper, sensei, image, description } = data;
+    Students.collection.update(_id, { $set: { name, owner, level, grasshopper, sensei, image, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -41,36 +41,49 @@ const EditProfile = () => {
   return ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
-        <Col xs={10}>
+        <Col xs={15}>
           <Col className="text-center"><h2 id="edit-title">Edit Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
-            <Card>
-              <Row id="name">
-                <Col><TextField name="name" showInlineError placeholder="Your name" /></Col>
-                <Col><TextField name="owner" showInlineError placeholder="Your name" disabled /></Col>
-              </Row>
-              <Row id="level">
-                <Col><SelectField name="level" showInlineError /></Col>
-              </Row>
-              <SelectField
-                name="grasshopper"
-                showInlineError
-                help="Select all classes you need help in"
-                multiple
-                checkboxes
-                inline
-              />
-              <SelectField
-                name="sensei"
-                showInlineError
-                help="Select all classes you need help in"
-                multiple
-                checkboxes
-                inline
-              />
-              <SubmitField value="Submit" />
-              <ErrorsField />
-            </Card>
+            <CardGroup>
+              <Card className="p-3">
+                <Row className="justify-content-center">
+                  <Col lg={5} id="image">
+                    <Image src={doc.image} width="200px" roundedCircle />
+                  </Col>
+                </Row>
+                <Row>
+                  <TextField name="image" showInlineError placeholder="Your headshot file" />
+                  <LongTextField name="description" placeholder="A bit about yourself" />
+                </Row>
+              </Card>
+              <Card className="p-5">
+                <Row id="name">
+                  <Col><TextField name="name" showInlineError placeholder="Your name" /></Col>
+                  <Col><TextField name="owner" showInlineError placeholder="Your name" disabled /></Col>
+                </Row>
+                <Row id="level">
+                  <Col><SelectField name="level" showInlineError /></Col>
+                </Row>
+                <SelectField
+                  name="grasshopper"
+                  showInlineError
+                  help="Select all classes you need help in"
+                  multiple
+                  checkboxes
+                  inline
+                />
+                <SelectField
+                  name="sensei"
+                  showInlineError
+                  help="Select all classes you need help in"
+                  multiple
+                  checkboxes
+                  inline
+                />
+                <SubmitField value="Submit" />
+                <ErrorsField />
+              </Card>
+            </CardGroup>
           </AutoForm>
         </Col>
       </Row>
