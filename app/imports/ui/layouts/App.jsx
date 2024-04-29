@@ -23,6 +23,8 @@ import AddUrgentSesh from '../pages/AddUrgentSesh';
 import ListNotifications from '../pages/ListNotifications';
 import ListStudents from '../pages/ListStudents';
 import ListStudentsAdmin from '../pages/ListStudentsAdmin';
+import Goals from '../pages/AddGoals';
+import ViewGoals from '../pages/ViewGoals';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -53,6 +55,8 @@ const App = () => {
           <Route path="/edit" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
           <Route path="/leaderboard" element={<ProtectedRoute><Leaderboard /></ProtectedRoute>} />
           <Route path="/adminStudent" element={<AdminProtectedRoute ready={ready}><ListStudentsAdmin /></AdminProtectedRoute>} />
+          <Route path="/goals" element={<ProtectedRoute><Goals /></ProtectedRoute>} />
+          <Route path="/viewgoals" element={<ProtectedRoute><ViewGoals /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
