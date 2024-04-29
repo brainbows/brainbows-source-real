@@ -1,10 +1,15 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Trash } from 'react-bootstrap-icons';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
+
+function removeNotif(id) {
+  return UrgentNotification.collection.remove({ _id: id });
+}
 
 const MakeCard = ({ urgentNotif }) => (
   <Col className="p-3">
@@ -26,6 +31,16 @@ const MakeCard = ({ urgentNotif }) => (
         <Card.Text>
           Time: {urgentNotif.startTime} - {urgentNotif.endTime}
         </Card.Text>
+        <Card.Footer className="d-grid fluid">
+          <Button
+            className="fluid"
+            variant="outline-danger"
+            size="lg"
+            onClick={() => removeNotif(urgentNotif._id)}
+          >
+            <Trash />
+          </Button>
+        </Card.Footer>
       </Card.Body>
     </Card>
   </Col>
@@ -38,6 +53,7 @@ MakeCard.propTypes = {
     topic: PropTypes.string,
     startTime: PropTypes.string,
     endTime: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
@@ -61,7 +77,7 @@ const ListNotifications = () => {
   return (ready ? (
     <Container className="py-3">
       <Row xs={1} md={2} lg={4} className="justify-content-start">
-        {urgentNotifs.map((urgentNotif, index) => <MakeCard key={index} urgentNotif={urgentNotif} />)}
+        {urgentNotifs.map((urgentNotif, _id) => <MakeCard key={_id} urgentNotif={urgentNotif} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />);
