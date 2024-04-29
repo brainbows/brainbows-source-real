@@ -35,7 +35,7 @@ const EditProfile = () => {
     const { name, owner, level, grasshopper, sensei, image, description } = data;
     Students.collection.update(_id, { $set: { name, owner, level, grasshopper, sensei, image, description } }, (error) => (error ?
       swal('Error', error.message, 'error') :
-      swal('Success', 'Item updated successfully', 'success')));
+      swal('Success', 'Student updated successfully', 'success')));
   };
 
   return ready ? (
@@ -44,8 +44,8 @@ const EditProfile = () => {
         <Col xs={15}>
           <Col className="text-center"><h2 id="edit-title">Edit Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
-            <CardGroup>
-              <Card className="p-3">
+            <CardGroup className="pt-3 pb-5">
+              <Card className="p-3" border="success" bg="secondary">
                 <Row className="justify-content-center">
                   <Col lg={5} id="image">
                     <Image src={doc.image} width="200px" roundedCircle />
@@ -75,7 +75,7 @@ const EditProfile = () => {
                 <SelectField
                   name="sensei"
                   showInlineError
-                  help="Select all classes you need help in"
+                  help="Select all classes you can help with"
                   multiple
                   checkboxes
                   inline
