@@ -45,7 +45,7 @@ const EditProfile = () => {
           <Col className="text-center"><h2 id="edit-title">Edit Profile</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <CardGroup className="pt-3 pb-5">
-              <Card className="p-3" border="success" bg="secondary">
+              <Card className="p-5" border="success" bg="secondary">
                 <Row className="justify-content-center">
                   <Col lg={5} id="image">
                     <Image src={doc.image} width="200px" roundedCircle />
