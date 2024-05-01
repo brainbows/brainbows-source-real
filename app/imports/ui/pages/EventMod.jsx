@@ -6,7 +6,9 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { ErrorsField } from 'uniforms-bootstrap5';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import FullCalendar from '@fullcalendar/react';
 import { Stuffs } from '../../api/stuff/Stuff';
 
 const formSchema = new SimpleSchema({
@@ -15,24 +17,24 @@ const formSchema = new SimpleSchema({
   endTime: Number,
   description: {
     type: String,
-    optional: false,
   },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-const EventMod = ({ isOpen, onClose }) => {
+const EventMod = ({ isOpen, onClose, onSubmit }) => {
   const handleSubmit = (data, formRef) => {
-    const { title, startTime, endTime } = data;
+    const { title, startTime, endTime, description } = data;
     const owner = Meteor.user().username;
     Stuffs.collection.insert(
-      { title, startTime, endTime, owner },
+      { title, startTime, endTime, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Item added successfully', 'success');
           formRef.reset();
+          onSubmit(data);
 
           const calendarEvents = document.getElementById('calendar-page');
           const calendar = new FullCalendar.Calendar(calendarEvents, {
@@ -41,7 +43,7 @@ const EventMod = ({ isOpen, onClose }) => {
             weekends: true,
             events: [
               // Other events...
-              { title, start, end },
+              { title, startTime, endTime },
             ],
           });
           calendar.render();
@@ -114,7 +116,6 @@ const EventMod = ({ isOpen, onClose }) => {
           />
           <LongTextField name="description" placeholder="Provide a quick description and the link to sign up" />
           <SubmitField value="Save Changes" />
-          <ErrorsField />
         </AutoForm>
       </Modal.Body>
     </Modal>
