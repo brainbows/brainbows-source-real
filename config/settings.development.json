@@ -7,11 +7,11 @@
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "HELP"
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler"
     },
     {
-      "name": "steve fart", "owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "ME"
+      "name": "steve fart", "owner": "admin@foo.com", "image": "https://i.imgflip.com/7iskwn.png",
+      "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "filler"
     },
     {
       "name": "admin","owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
@@ -64,6 +64,11 @@
       "topic": "I need help with blah blah",
       "startTime": "1 pm",
       "endTime": "3 pm"
+    }
+  ],
+  "defaultRating": [
+    {
+      "value": 0, "owner": "john@foo.com"
     }
   ]
 }

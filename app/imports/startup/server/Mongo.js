@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Students } from '../../api/student/Student';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
+import { Rating } from '../../api/rating/Rating';
 
 /* eslint-disable no-console */
 
@@ -42,5 +43,17 @@ if (UrgentNotification.collection.find().count() === 0) {
   if (Meteor.settings.defaultUrgentNotification) {
     console.log('Creating default Urgent Notifications.');
     Meteor.settings.defaultUrgentNotification.forEach(urgentNotif => addUrgentNotif(urgentNotif));
+  }
+}
+
+const addRating = (rating) => {
+  console.log(`  Adding: ${rating.value}`);
+  Rating.collection.insert(rating);
+};
+
+if (Rating.collection.find().count() === 0) {
+  if (Meteor.settings.defaultRating) {
+    console.log('Creating default Ratings.');
+    Meteor.settings.defaultRating.forEach(rating => addRating(rating));
   }
 }

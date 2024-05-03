@@ -4,6 +4,7 @@ import { Students } from '../../api/student/Student';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 import { Goals } from '../../api/goals/Goals';
+import { Rating } from '../../api/rating/Rating';
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.
@@ -102,6 +103,14 @@ Meteor.publish(Goals.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Goals.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Rating.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Rating.collection.find({ owner: username });
   }
   return this.ready();
 });
