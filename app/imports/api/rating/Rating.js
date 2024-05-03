@@ -6,7 +6,6 @@ class RatingCollection {
     this.name = 'RatingCollection';
     this.collection = new Mongo.Collection(this.name);
     this.schema = new SimpleSchema({
-      owner: String,
       value: Number,
     });
     this.collection.attachSchema(this.schema);

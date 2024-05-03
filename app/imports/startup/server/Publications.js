@@ -106,11 +106,3 @@ Meteor.publish(Goals.userPublicationName, function () {
   }
   return this.ready();
 });
-
-Meteor.publish(Rating.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Rating.collection.find({ owner: username });
-  }
-  return this.ready();
-});
