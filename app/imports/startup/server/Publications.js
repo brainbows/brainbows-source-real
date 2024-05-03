@@ -4,7 +4,6 @@ import { Students } from '../../api/student/Student';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 import { Goals } from '../../api/goals/Goals';
-import { Rating } from '../../api/rating/Rating';
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.

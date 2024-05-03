@@ -20,7 +20,7 @@ const Student = ({ students }) => {
       </Card.Header>
       <Card.Body>
         <Card.Text>{students.description}</Card.Text>
-        <Rating defaultValue={rating} onChange={handleRatingChange} />
+        <Rating defaultValue={rating} id={students._id} onChange={handleRatingChange} />
         <p>Selected Rating: {rating}</p>
       </Card.Body>
     </Card>
@@ -51,6 +51,7 @@ Student.propTypes = {
       allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
     },
     description: PropTypes.string,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };
 
