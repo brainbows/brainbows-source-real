@@ -71,7 +71,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#list-stuff-nav');
+    await testController.click('#list-OfficeHours-nav');
   }
 
   async gotoCalendarPage(testController) {
@@ -79,7 +79,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#list-stuff-nav');
+    await testController.click('#calendar-nav');
   }
 }
 

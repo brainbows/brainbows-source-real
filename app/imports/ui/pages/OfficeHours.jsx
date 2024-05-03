@@ -51,7 +51,7 @@ const OfficeHours = () => {
   ];
 
   return (ready ? (
-    <Container className="py-3">
+    <Container className="py-3" id="office-hours">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">

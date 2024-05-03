@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 class OfficeHoursPage {
   constructor() {
-    this.pageId = '#list-stuff-nav';
+    this.pageId = '#office-hours';
     this.pageSelector = Selector(this.pageId);
   }
 
