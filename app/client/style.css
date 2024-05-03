@@ -101,3 +101,10 @@ body {
   background-color: #135213 !important;
 }
 
+input[type=radio] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+}
