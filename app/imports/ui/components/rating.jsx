@@ -15,6 +15,8 @@ const Rating = ({ id, defaultValue, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    ratings.push({ id, value });
+    setRatings([...ratings]);
   };
 
   const calculateAverageRating = () => {
