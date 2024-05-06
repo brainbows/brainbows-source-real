@@ -25,6 +25,8 @@ import ListStudents from '../pages/ListStudents';
 import ListStudentsAdmin from '../pages/ListStudentsAdmin';
 import Goals from '../pages/AddGoals';
 import ViewGoals from '../pages/ViewGoals';
+import AddProfessor from '../pages/AddProfessor';
+import EditProfessor from '../pages/EditProfessor';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -44,7 +46,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-          <Route path="/listOH" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
+          <Route path="/list-office-hours" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
           <Route path="/listStudent" element={<ProtectedRoute><ListStudents /></ProtectedRoute>} />
           <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
@@ -57,6 +59,8 @@ const App = () => {
           <Route path="/adminStudent" element={<AdminProtectedRoute ready={ready}><ListStudentsAdmin /></AdminProtectedRoute>} />
           <Route path="/goals" element={<ProtectedRoute><Goals /></ProtectedRoute>} />
           <Route path="/viewgoals" element={<ProtectedRoute><ViewGoals /></ProtectedRoute>} />
+          <Route path="/add-professor" element={<AdminProtectedRoute ready={ready}><AddProfessor /></AdminProtectedRoute>} />
+          <Route path="/edit-professor/:_id" element={<ProtectedRoute><EditProfessor /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><AdminHome /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
