@@ -19,6 +19,20 @@
     }
   ],
 
+  "defaultProfessors": [
+    {
+    "name": "Philip Johnson",
+    "owner": "admin@foo.com",
+    "room": "POST",
+    "roomLocation": "University of Hawaii",
+    "image": "https://github.com/philipmjohnson.png",
+    "coursesTaught": "ICS 101",
+    "days": "T",
+    "startTime": "1:00PM",
+    "endTime": "2:00PM"
+    }
+  ],
+
   "defaultUrgent": [
     {
       "name": "John Doe", "owner": "john@foo.com",
