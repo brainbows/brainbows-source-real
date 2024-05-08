@@ -4,10 +4,9 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 /* import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff'; */
+import { Meteor } from 'meteor/meteor'; */
 import EventMod from './EventMod';
-import { Stuffs } from '../../api/stuff/Stuff';
+import { Events } from '../../api/stuff/Events';
 
 /* const EventSchema = new SimpleSchema({
   title: String,
@@ -26,7 +25,7 @@ const Calendar = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    const stuffs = Stuffs.collection.find().fetch();
+    const stuffs = Events.collection.find().fetch();
 
     const FormattedEvents = stuffs.map(stuff => ({
       title: stuff.title,
