@@ -30,12 +30,14 @@ const Rating = ({ id, defaultValue, onChange }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor={`rating-${id}`}>Rate this student:</label>
         <div className="rating-stars">
           {[...Array(5)].map((_, index) => {
             const ratingValue = index + 1;
 
             return (
+              // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label htmlFor={`star-${id}-${ratingValue}`} className="star-wrapper" key={`star-${id}-${ratingValue}`}>
                 <input
                   type="radio"
@@ -66,7 +68,9 @@ const Rating = ({ id, defaultValue, onChange }) => {
 
 Rating.propTypes = {
   id: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/require-default-props
   defaultValue: PropTypes.number,
+  // eslint-disable-next-line react/require-default-props
   onChange: PropTypes.func,
 };
 export default Rating;

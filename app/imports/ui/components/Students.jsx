@@ -22,7 +22,8 @@ const Student = ({ students }) => {
         <Card.Text>{students.description}</Card.Text>
         <Rating defaultValue={rating} id={students._id} onChange={handleRatingChange} />
         <p>Selected Rating: {rating}</p>
-        <button type="submit">Recruit!!!</button>
+        
+        <button type="submit">chat with student</button>
       </Card.Body>
     </Card>
   );
