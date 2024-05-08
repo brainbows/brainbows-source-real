@@ -30,7 +30,7 @@ const ChatInterface = ({ students }) => {
       const newMessage = {
         id: Date.now(),
         text: inputText,
-        sender: 'Me', // Assuming the current user is the sender
+        sender: students._id, // Assuming the current user is the sender
         timestamp: new Date().toISOString(), // You might want to add a timestamp to messages
       };
       setMessages(prevMessages => [...prevMessages, newMessage]);
@@ -45,7 +45,7 @@ const ChatInterface = ({ students }) => {
     <div className="chat-interface">
       <div className="message-container">
         {messages.map((message, index) => (
-          <div key={index} className={message.sender === 'Me' ? 'sent-message' : 'received-message'}>
+          <div key={index} className={message.sender === students._id ? 'sent-message' : 'received-message'}>
             <p>{message.sender}: {message.text}</p>
             <span>{new Date(message.timestamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} </span>
             {/* eslint-disable-next-line react/button-has-type */}
@@ -68,6 +68,7 @@ const ChatInterface = ({ students }) => {
 
 ChatInterface.propTypes = {
   students: PropTypes.shape({
+    name: PropTypes.string,
     _id: PropTypes.string.isRequired,
   }).isRequired,
 };
