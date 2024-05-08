@@ -2,19 +2,17 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const ChatInterface = ({ students }) => {
-  const studentId = 
+  const studentId = students._id;
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
 
   useEffect(() => {
-    const savedMessages = JSON.parse(localStorage.getItem('chatMessages'));
-    if (savedMessages) {
-      setMessages(savedMessages);
-    }
-  }, []);
+    const savedMessages = JSON.parse(localStorage.getItem(`chatMessages_${studentId}`)) || [];
+    setMessages(savedMessages);
+  }, [studentId]);
   useEffect(() => {
     localStorage.setItem('chatMessages', JSON.stringify(messages));
-  }, [messages]);
+  }, [messages, studentId]);
 
   const handleInputChange = (event) => {
     setInputText(event.target.value);
@@ -50,6 +48,7 @@ const ChatInterface = ({ students }) => {
           <div key={index} className={message.sender === 'Me' ? 'sent-message' : 'received-message'}>
             <p>{message.sender}: {message.text}</p>
             <span>{new Date(message.timestamp).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} </span>
+            {/* eslint-disable-next-line react/button-has-type */}
             <button onClick={() => deleteMessage(message.id)}>Delete</button>
           </div>
         ))}
