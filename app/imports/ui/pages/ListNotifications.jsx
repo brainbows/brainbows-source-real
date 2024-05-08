@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { Trash } from 'react-bootstrap-icons';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
+import { StudyNotification } from '../../api/studynotif/StudyNotif';
 
 function removeNotif(id) {
   return UrgentNotification.collection.remove({ _id: id });
@@ -57,20 +58,59 @@ MakeCard.propTypes = {
   }).isRequired,
 };
 
+const StudyCard = ({ studyNotif }) => (
+  <Col className="p-3">
+    <Card className="h-100">
+      <Card.Header>
+        <Card.Title>Study Sesh</Card.Title>
+        <Card.Subtitle>A student needs your help</Card.Subtitle>
+      </Card.Header>
+      <Card.Body>
+        <Card.Text>
+          Student: {studyNotif.from}
+        </Card.Text>
+        <Card.Text>
+          Course: {studyNotif.course}
+        </Card.Text>
+        <Card.Text>
+          Topic: {studyNotif.topic}
+        </Card.Text>
+        <Card.Text>
+          Time: {studyNotif.startTime} - {studyNotif.endTime}
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  </Col>
+);
+
+StudyCard.propTypes = {
+  studyNotif: PropTypes.shape({
+    from: PropTypes.string,
+    course: PropTypes.string,
+    topic: PropTypes.string,
+    startTime: PropTypes.string,
+    endTime: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
+};
+
 /* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 const ListNotifications = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { ready, urgentNotifs } = useTracker(() => {
+  const { ready, urgentNotifs, studyNotifs } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(UrgentNotification.userPublicationName);
+    const sub2 = Meteor.subscribe(StudyNotification.userPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = subscription.ready() && sub2.ready();
     // Get the Stuff documents
     const urgentNotifItems = UrgentNotification.collection.find({}).fetch();
+    const studyNotifItems = StudyNotification.collection.find({}).fetch();
     return {
       urgentNotifs: urgentNotifItems,
+      studyNotifs: studyNotifItems,
       ready: rdy,
     };
   }, []);
@@ -78,6 +118,9 @@ const ListNotifications = () => {
     <Container className="py-3">
       <Row xs={1} md={2} lg={4} className="justify-content-start">
         {urgentNotifs.map((urgentNotif, _id) => <MakeCard key={_id} urgentNotif={urgentNotif} />)}
+      </Row>
+      <Row xs={1} md={2} lg={4} className="justify-content-start">
+        {studyNotifs.map((studyNotif, _id) => <StudyCard key={_id} studyNotif={studyNotif} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />);

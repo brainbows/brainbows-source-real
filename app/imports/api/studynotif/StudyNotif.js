@@ -22,11 +22,6 @@ class StudyNotifCollection {
       topic: String,
       startTime: String,
       endTime: String,
-      status: {
-        type: String,
-        allowedValues: ['Pending', 'Accepted', 'Decline'],
-        defaultValue: 'Pending',
-      },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

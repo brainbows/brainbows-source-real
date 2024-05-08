@@ -27,6 +27,7 @@ import Goals from '../pages/AddGoals';
 import ViewGoals from '../pages/ViewGoals';
 import AddProfessor from '../pages/AddProfessor';
 import EditProfessor from '../pages/EditProfessor';
+import AddStudySesh from '../pages/AddStudySesh';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/listStudent" element={<ProtectedRoute><ListStudents /></ProtectedRoute>} />
           <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><UserHome /></ProtectedRoute>} />
+          <Route path="/add-sesh/:_id" element={<ProtectedRoute><AddStudySesh /></ProtectedRoute>} />
           <Route path="/add-urgent-sesh" element={<ProtectedRoute><AddUrgentSesh /></ProtectedRoute>} />
           <Route path="/notification-page" element={<ProtectedRoute><ListNotifications /></ProtectedRoute>} />
           <Route path="/edit/:_id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />

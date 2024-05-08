@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Col, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Rating from './rating';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -25,7 +26,7 @@ const Student = ({ students }) => {
           <p>Selected Rating: {rating}</p>
         </Card.Body>
         <Card.Footer className="d-grid fluid">
-          <Button type="submit">Recruit!!!</Button>
+          <Link to={`/add-sesh/${students._id}`}><Button type="submit">Recruit!!!</Button></Link>
         </Card.Footer>
       </Card>
     </Col>
