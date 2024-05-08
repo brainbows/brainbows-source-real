@@ -28,7 +28,7 @@ const ChatInterface = () => {
   const sendMessage = () => {
     if (inputText.trim() !== '') {
       const newMessage = {
-        id: 
+        id: Date.now(),
         text: inputText,
         sender: 'Me', // Assuming the current user is the sender
         timestamp: new Date().toISOString(), // You might want to add a timestamp to messages
