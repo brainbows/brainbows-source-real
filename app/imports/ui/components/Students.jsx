@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Col, Image } from 'react-bootstrap';
+import { Badge, Button, Card, Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Rating from './rating';
 
@@ -17,8 +17,8 @@ const Student = ({ students }) => {
           <Image src={students.image} width={75} />
           <Card.Title>{students.name}</Card.Title>
           <Card.Subtitle>Year: {students.level} </Card.Subtitle>
-          <Card.Subtitle>Grasshopper Class: {students.grasshopper} </Card.Subtitle>
-          <Card.Subtitle>Can Teach: {students.sensei} </Card.Subtitle>
+          <Card.Subtitle>Grasshopper Class: <Badge bg="primary">{students.grasshopper}</Badge> </Card.Subtitle>
+          <Card.Subtitle>Can Teach: <Badge bg="primary">{students.sensei}</Badge> </Card.Subtitle>
         </Card.Header>
         <Card.Body>
           <Card.Text>{students.description}</Card.Text>

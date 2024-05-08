@@ -12,6 +12,10 @@ function removeNotif(id) {
   return UrgentNotification.collection.remove({ _id: id });
 }
 
+function removeStudyNotif(id) {
+  return StudyNotification.collection.remove({ _id: id });
+}
+
 const MakeCard = ({ urgentNotif }) => (
   <Col className="p-3">
     <Card className="h-100">
@@ -78,6 +82,16 @@ const StudyCard = ({ studyNotif }) => (
         <Card.Text>
           Time: {studyNotif.startTime} - {studyNotif.endTime}
         </Card.Text>
+        <Card.Footer className="d-grid fluid">
+          <Button
+            className="fluid"
+            variant="outline-danger"
+            size="lg"
+            onClick={() => removeStudyNotif(studyNotif._id)}
+          >
+            <Trash />
+          </Button>
+        </Card.Footer>
       </Card.Body>
     </Card>
   </Col>
