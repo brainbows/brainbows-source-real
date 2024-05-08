@@ -1,15 +1,16 @@
 import React from 'react';
 import ChatInterface from '../components/chatInterface';
+import students from '../components/Students';
 
 // eslint-disable-next-line arrow-body-style
-const ChatSystem = ({ student }) => {
+const ChatSystem = () => {
   return (
     <div className="chat-system-container">
       <div className="title">
-        <h1 style={{ textAlign: 'center' }}>Chat with {student.name}</h1>
+        <h1 style={{ textAlign: 'center' }}>Chat</h1>
       </div>
       <div className="content">
-        <ChatInterface student={student} />
+        <ChatInterface students={students._id} />
       </div>
     </div>
   );
