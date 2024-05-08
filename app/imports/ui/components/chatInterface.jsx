@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const ChatInterface = () => {
+const ChatInterface = ({ students }) => {
+  const studentId = 
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
 
@@ -65,4 +67,9 @@ const ChatInterface = () => {
   );
 };
 
+ChatInterface.propTypes = {
+  students: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
+};
 export default ChatInterface;
