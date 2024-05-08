@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaStar } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 const Rating = ({ id, defaultValue, onChange }) => {
-  const [ratings, setRatings] = useState([]);
   const [value, setValue] = useState(defaultValue || 0);
+  const [ratings, setRatings] = useState([]);
+
+  useEffect(() => {
+    // Retrieve ratings from localStorage on component mount
+    const storedRatings = JSON.parse(localStorage.getItem('ratings')) || {};
+    setRatings(storedRatings[id] || []);
+  }, [id]);
 
   const handleClick = (newValue) => {
     setValue(newValue);
@@ -15,16 +21,27 @@ const Rating = ({ id, defaultValue, onChange }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    ratings.push({ id, value });
-    setRatings([...ratings]);
+    const updatedRatings = [...ratings, value];
+    setRatings(updatedRatings);
+    // Update localStorage with new ratings
+    const updatedLocalStorage = { ...JSON.parse(localStorage.getItem('ratings')), [id]: updatedRatings };
+    localStorage.setItem('ratings', JSON.stringify(updatedLocalStorage));
   };
 
   const calculateAverageRating = () => {
     if (ratings.length === 0) {
       return 0; // Return 0 if no ratings yet
     }
-    const total = ratings.reduce((acc, rating) => acc + rating.value, 0);
+    const total = ratings.reduce((acc, rating) => acc + rating, 0);
     return total / ratings.length;
+  };
+
+  const handleRefreshAverage = () => {
+    // Clear ratings and localStorage
+    setRatings([]);
+    const updatedLocalStorage = { ...JSON.parse(localStorage.getItem('ratings')), [id]: [] };
+    delete updatedLocalStorage[id];
+    localStorage.setItem('ratings', JSON.stringify(updatedLocalStorage));
   };
 
   return (
@@ -57,10 +74,12 @@ const Rating = ({ id, defaultValue, onChange }) => {
           })}
         </div>
         <button type="submit">Submit</button>
+        {/* eslint-disable-next-line react/button-has-type */}
+        <button onClick={handleRefreshAverage}>Clear and Reset Average</button>
       </form>
       <div>
         <h2>Rating:</h2>
-        <p>{calculateAverageRating().toFixed(1)} <FaStar className="star" size={10} />&apos;s</p>
+        <p>{calculateAverageRating().toFixed(1)} <FaStar className="star" size={10} />{'\''}s</p>
       </div>
     </div>
   );
@@ -73,4 +92,5 @@ Rating.propTypes = {
   // eslint-disable-next-line react/require-default-props
   onChange: PropTypes.func,
 };
+
 export default Rating;
