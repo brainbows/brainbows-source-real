@@ -25,7 +25,7 @@ import ListStudents from '../pages/ListStudents';
 import ListStudentsAdmin from '../pages/ListStudentsAdmin';
 import Goals from '../pages/AddGoals';
 import ViewGoals from '../pages/ViewGoals';
-import ChatApp from '../components/chat';
+import ChatSystem from '../pages/chatSystem';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/chat" element={<ChatApp />} />
+          <Route path="/chat" element={<ChatSystem />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/listOH" element={<ProtectedRoute><OfficeHours /></ProtectedRoute>} />
           <Route path="/listStudent" element={<ProtectedRoute><ListStudents /></ProtectedRoute>} />
