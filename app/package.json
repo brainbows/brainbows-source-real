@@ -23,6 +23,7 @@
     "simpl-schema": "^3.4.6",
     "sweetalert": "^2.1.2",
     "uniforms": "^3.10.2",
+    "uniforms-bootstrap4": "^4.0.0-alpha.5",
     "uniforms-bootstrap5": "^3.10.2",
     "uniforms-bridge-simple-schema-2": "^3.10.2"
   },
