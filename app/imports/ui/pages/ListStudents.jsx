@@ -13,7 +13,7 @@ const ListStudents = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Student documents.
-    const subscription = Meteor.subscribe(Students.userPublicationName);
+    const subscription = Meteor.subscribe(Students.generalPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Student documents
@@ -29,14 +29,12 @@ const ListStudents = () => {
         <Button href="/add-urgent-sesh" variant="success" size="lg">Schedule An Urgent Sesh</Button>
       </Row>
       <Row className="justify-content-center">
-        <Col md={7}>
-          <Col className="text-center">
-            <h2>List Students</h2>
-          </Col>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {students.map((student) => (<Col key={student._id}><Student students={student} /></Col>))}
-          </Row>
-        </Col>
+        <Row className="text-center pt-3">
+          <h2>List Students</h2>
+        </Row>
+        <Row xs={1} md={2} lg={4} className="g-4">
+          {students.map((student) => (<Col key={student._id}><Student students={student} /></Col>))}
+        </Row>
       </Row>
     </Container>
   ) : <LoadingSpinner />);

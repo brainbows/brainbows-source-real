@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Col, Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const Student = ({ students }) => (
-  <Card className="h-100">
-    <Card.Header>
-      <Image src={students.image} />
-      <Card.Title>{students.name}</Card.Title>
-      <Card.Subtitle>Year: {students.level} </Card.Subtitle>
-      <Card.Subtitle>Class: {students.grasshopper} </Card.Subtitle>
-      <Card.Subtitle>Can Teach: {students.sensei} </Card.Subtitle>
-    </Card.Header>
-    <Card.Body>
-      <Card.Text>{students.description}</Card.Text>
-    </Card.Body>
-  </Card>
+  <Col className="p-3 fluid">
+    <Card className="h-200">
+      <Card.Header>
+        <Image src={students.image} width="230px" height="230px" rounded />
+        <Card.Title>{students.name}</Card.Title>
+        <Card.Subtitle>Year: {students.level} </Card.Subtitle>
+        <Card.Subtitle>Grasshopper Classes: {students.grasshopper} </Card.Subtitle>
+        <Card.Subtitle>Can Teach: {students.sensei} </Card.Subtitle>
+      </Card.Header>
+      <Card.Body>
+        <Card.Text>{students.description}</Card.Text>
+      </Card.Body>
+    </Card>
+  </Col>
 );
 
 // Require a document to be passed to this component.
