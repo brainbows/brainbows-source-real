@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Nav, Col } from 'react-bootstrap';
+import { Card, Image, Col } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
