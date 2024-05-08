@@ -1,16 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 import ChatInterface from '../components/chatInterface';
-import students from '../components/Students';
 
 // eslint-disable-next-line arrow-body-style
 const ChatSystem = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const studentId = searchParams.get('studentId');
+
   return (
     <div className="chat-system-container">
       <div className="title">
-        <h1 style={{ textAlign: 'center' }}>Chat with {students.name}</h1>
+        <h1 style={{ textAlign: 'center' }}>Chat</h1>
       </div>
       <div className="content">
-        <ChatInterface students={students.name} />
+        {studentId && <ChatInterface studentId={studentId} />}
       </div>
     </div>
   );

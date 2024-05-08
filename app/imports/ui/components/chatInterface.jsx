@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-const ChatInterface = () => {
+const ChatInterface = ({ studentId }) => {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
+
   useEffect(() => {
-    const savedMessages = JSON.parse(localStorage.getItem('chatMessages'));
-    if (savedMessages) {
-      setMessages(savedMessages);
-    }
-  }, []);
+    const savedMessages = JSON.parse(localStorage.getItem(`chatMessages_${studentId}`)) || [];
+    setMessages(savedMessages);
+  }, [studentId]);
+
   useEffect(() => {
-    localStorage.setItem('chatMessages', JSON.stringify(messages));
-  }, [messages]);
+    localStorage.setItem(`chatMessages_${studentId}`, JSON.stringify(messages));
+  }, [messages, studentId]);
 
   const handleInputChange = (event) => {
     setInputText(event.target.value);
@@ -63,6 +64,10 @@ const ChatInterface = () => {
       </div>
     </div>
   );
+};
+
+ChatInterface.propTypes = {
+  studentId: PropTypes.string.isRequired,
 };
 
 export default ChatInterface;

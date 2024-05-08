@@ -23,7 +23,7 @@ const Student = ({ students }) => {
         <Card.Text>{students.description}</Card.Text>
         <Rating defaultValue={rating} id={students._id} onChange={handleRatingChange} />
         <p>Selected Rating: {rating}</p>
-        <Link to="/chat">
+        <Link to={`/chat?studentId=${students._id}`}>
           <button type="submit">chat with student</button>
         </Link>
       </Card.Body>
