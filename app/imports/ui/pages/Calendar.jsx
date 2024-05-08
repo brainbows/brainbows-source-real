@@ -24,13 +24,31 @@ const Calendar = () => {
   const [openMod, setOpenMod] = useState(false);
   const [events, setEvents] = useState([]);
 
+  // Convert numbers to time
+  const numberToTime = (num, isEndTime) => {
+    // Convert string to int
+    const intNum = parseInt(num, 10);
+
+    // Calculation of hours and minutes
+    let hours;
+    if (isEndTime) {
+      hours = Math.floor((intNum - 20) / 2) + 8;
+    } else {
+      hours = Math.floor((intNum - 1) / 2) + 8;
+    }
+    const minutes = (intNum % 2) * 30;
+
+    // Time String
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  };
+
   useEffect(() => {
     const stuffs = Events.collection.find().fetch();
 
     const FormattedEvents = stuffs.map(stuff => ({
       title: stuff.title,
-      start: stuff.startTime,
-      end: stuff.endTime,
+      start: new Date(`1970-01-01T${numberToTime(stuff.startTime, false)}:00`),
+      end: new Date(`1970-01-01T${numberToTime(stuff.endTime, true)}:00`),
     }));
 
     setEvents(FormattedEvents);
