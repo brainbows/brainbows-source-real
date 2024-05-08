@@ -7,15 +7,33 @@
   "defaultStudents": [
     {
       "name": "John Doe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "HELP"
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler", "ratings": 5
     },
     {
-      "name": "steve fart", "owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "ME"
+      "name": "steve fart", "owner": "admin@foo.com", "image": "https://i.imgflip.com/7iskwn.png",
+      "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "filler", "ratings": 5
     },
     {
       "name": "admin","owner": "admin@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"], "description": "admin"
+      "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"], "description": "admin", "ratings": 5
+    },
+    {
+      "name": "dixon yamada","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler", "ratings": 4
+    }
+  ],
+
+  "defaultProfessors": [
+    {
+    "name": "Philip Johnson",
+    "owner": "admin@foo.com",
+    "room": "POST",
+    "roomLocation": "University of Hawaii",
+    "image": "https://github.com/philipmjohnson.png",
+    "coursesTaught": "ICS 101",
+    "days": "T",
+    "startTime": "1:00PM",
+    "endTime": "2:00PM"
     }
   ],
 

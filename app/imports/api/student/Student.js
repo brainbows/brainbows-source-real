@@ -34,6 +34,18 @@ class StudentsCollection {
         allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
       },
       description: String,
+      ratings: {
+        type: Array,
+        blackbox: true,
+        optional: true,
+      },
+      'ratings.$': {
+        type: Object,
+      },
+      'ratings.$.value': {
+        type: Number,
+        allowedValues: [1, 2, 3, 4, 5], // Assuming ratings are integers between 1 and 5
+      },
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

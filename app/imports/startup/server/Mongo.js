@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Students } from '../../api/student/Student';
+import { Professors } from '../../api/professor/Professor';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 
@@ -16,6 +17,19 @@ if (Students.collection.find().count() === 0) {
   if (Meteor.settings.defaultStudents) {
     console.log('Creating default Students.');
     Meteor.settings.defaultStudents.forEach(student => addStudent(student));
+  }
+}
+
+const addProfessor = (professor) => {
+  console.log(`  Adding: ${professor.name} (${professor.owner})`);
+  Professors.collection.insert(professor);
+};
+
+// Initialize the StuffsCollection if empty.
+if (Professors.collection.find().count() === 0) {
+  if (Meteor.settings.defaultProfessors) {
+    console.log('Creating default Professors.');
+    Meteor.settings.defaultProfessors.forEach(professor => addProfessor(professor));
   }
 }
 

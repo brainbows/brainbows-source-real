@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import SimpleSchema from 'simpl-schema';
+/* import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
+import { Stuffs } from '../../api/stuff/Stuff'; */
 import EventMod from './EventMod';
-import { Students } from '../../api/student/Student';
+import { Stuffs } from '../../api/stuff/Stuff';
 
-const EventSchema = new SimpleSchema({
+/* const EventSchema = new SimpleSchema({
   title: String,
   startTime: Date,
   endTime: Date,
@@ -18,30 +19,27 @@ const EventSchema = new SimpleSchema({
   },
 });
 
+ */
+
 const Calendar = () => {
   const [openMod, setOpenMod] = useState(false);
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const stuffs = Stuffs.collection.find().fetch();
+
+    const FormattedEvents = stuffs.map(stuff => ({
+      title: stuff.title,
+      start: stuff.startTime,
+      end: stuff.endTime,
+    }));
+
+    setEvents(FormattedEvents);
+  }, []);
 
   const handleDateClick = () => {
     console.log('Date clicked!');
     setOpenMod(true);
-  };
-
-  const submit = (eventData, formRef) => {
-    const { title, startTime, endTime, description } = eventData;
-    const owner = Meteor.user().username;
-    EventSchema.validate(eventData);
-    Students.collection.insert(
-      { title, startTime, endTime, description, owner },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
-        }
-      },
-    );
-    setOpenMod(false);
   };
 
   return (
@@ -51,11 +49,9 @@ const Calendar = () => {
         dateClick={handleDateClick}
         initialView="dayGridMonth"
         weekends
-        events={[
-          { title: 'sample1', date: '2024-04-01' },
-        ]}
+        events={events}
       />
-      <EventMod isOpen={openMod} onClose={() => setOpenMod(false)} onSubmit={submit} />
+      <EventMod isOpen={openMod} onClose={() => setOpenMod(false)} />
     </div>
   );
 };

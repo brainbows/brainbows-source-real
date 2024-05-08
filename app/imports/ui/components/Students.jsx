@@ -1,24 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Col, Image } from 'react-bootstrap';
+import Rating from './rating';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const Student = ({ students }) => (
-  <Col className="p-3 fluid">
-    <Card className="h-200">
-      <Card.Header>
-        <Image src={students.image} width="230px" height="230px" rounded />
-        <Card.Title>{students.name}</Card.Title>
-        <Card.Subtitle>Year: {students.level} </Card.Subtitle>
-        <Card.Subtitle>Grasshopper Classes: {students.grasshopper} </Card.Subtitle>
-        <Card.Subtitle>Can Teach: {students.sensei} </Card.Subtitle>
-      </Card.Header>
-      <Card.Body>
-        <Card.Text>{students.description}</Card.Text>
-      </Card.Body>
-    </Card>
-  </Col>
-);
+const Student = ({ students }) => {
+  const [rating, setRating] = useState(null);
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+  return (
+    <Col>
+      <Card className="h-100">
+        <Card.Header>
+          <Image src={students.image} width={75} />
+          <Card.Title>{students.name}</Card.Title>
+          <Card.Subtitle>Year: {students.level} </Card.Subtitle>
+          <Card.Subtitle>Class: {students.grasshopper} </Card.Subtitle>
+          <Card.Subtitle>Can Teach: {students.sensei} </Card.Subtitle>
+        </Card.Header>
+        <Card.Body>
+          <Card.Text>{students.description}</Card.Text>
+          <Rating defaultValue={rating} id={students._id} onChange={handleRatingChange} />
+          <p>Selected Rating: {rating}</p>
+          <button type="submit">Recruit!!!</button>
+        </Card.Body>
+      </Card>
+    </Col>
+  );
+};
 
 // Require a document to be passed to this component.
 Student.propTypes = {
@@ -45,6 +55,7 @@ Student.propTypes = {
       allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
     },
     description: PropTypes.string,
+    _id: PropTypes.string.isRequired,
   }).isRequired,
 };
 
