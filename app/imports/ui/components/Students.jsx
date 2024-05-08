@@ -24,6 +24,9 @@ const Student = ({ students }) => {
           <Card.Text>{students.description}</Card.Text>
           <Rating defaultValue={rating} id={students._id} onChange={handleRatingChange} />
           <p>Selected Rating: {rating}</p>
+          <Link to={`/chat?studentId=${students._id}`}>
+            <button type="submit">chat with student</button>
+          </Link>
         </Card.Body>
         <Card.Footer className="d-grid fluid">
           <Link to={`/add-sesh/${students._id}`}><Button type="submit">Recruit!!!</Button></Link>

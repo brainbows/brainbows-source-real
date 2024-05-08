@@ -108,3 +108,28 @@ input[type=radio] {
 .star {
   cursor: pointer;
 }
+
+.chat-interface {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: yellow;
+}
+
+.message-container {
+  flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling for message overflow */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #ccc; /* Optional: Add a border between messages and input */
+}
+
+.input-container input {
+  flex-grow: 1;
+  margin-right: 10px;
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Professors } from '../../api/professor/Professor';
