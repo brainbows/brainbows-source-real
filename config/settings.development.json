@@ -19,7 +19,43 @@
     },
     {
       "name": "Joseph Joe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
-      "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler", "ratings": 4
+      "level": "Freshman", "grasshopper": ["ICS 111"], "sensei": ["ICS 101"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Morise Williamson","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Junior", "grasshopper": ["ICS 241"], "sensei": ["ICS 211"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Hannah Kae","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Senior", "grasshopper": ["ICS 241"], "sensei": ["ICS 211"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Stark Tony","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Freshman", "grasshopper": ["ICS 110P"], "sensei": ["ICS 101"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Nodari Sitchnava","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Sophomore", "grasshopper": ["ICS 141"], "sensei": ["ICS 111"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Cam Moore","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Junior", "grasshopper": ["ICS 211"], "sensei": ["ICS 241"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Sebastian Dinglebottom","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Freshman", "grasshopper": ["ICS 111"], "sensei": ["ICS 110P"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Hingle McCringleberry","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Junior", "grasshopper": ["ICS 241"], "sensei": ["ICS 211"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Jackmerius Tacktheritrix","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Sophomore", "grasshopper": ["ICS 141"], "sensei": ["ICS 111"], "description": "filler", "ratings": 4
+    },
+    {
+      "name": "Adam Rizzington","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "level": "Senior", "grasshopper": ["ICS 241"], "sensei": ["ICS 110P"], "description": "filler", "ratings": 4
     }
   ],
 
