@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
-import { PersonFill, PeopleFill, CalendarFill, ClockHistory, CheckLg } from 'react-bootstrap-icons';
+import { PersonFill, PeopleFill, CalendarFill, CheckLg, BarChartLineFill } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -78,7 +78,7 @@ const UserHome = () => {
         <Col xs={4}>
           <Card>
             <Card.Header>
-              <ClockHistory size={100} />
+              <BarChartLineFill size={100} />
               <h4>Leaderboard</h4>
             </Card.Header>
             <Card.Body>
@@ -103,7 +103,7 @@ const UserHome = () => {
         <Col xs={4}>
           <Card>
             <Card.Header>
-              <ClockHistory size={100} />
+              <CheckLg size={100} />
               <h4>Create Goals</h4>
             </Card.Header>
             <Card.Body>
