@@ -46,7 +46,7 @@ const UserHome = () => {
               <h4>Match</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="listStudent">Find other Study Buddies</Button>
+              <Button id="match" href="listStudent">Find other Study Buddies</Button>
             </Card.Body>
           </Card>
         </Col>
