@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 class LeaderboardPage {
   constructor() {
-    this.pageId = '#leaderboard-nav';
+    this.pageId = '#leaderboard';
     this.pageSelector = Selector(this.pageId);
   }
 

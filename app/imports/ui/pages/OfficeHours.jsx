@@ -25,7 +25,7 @@ const OfficeHours = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3" id="office-hours">
+    <Container className="py-3" id="list-office-hours">
       <Row className="justify-content-center">
         <Button href="/add-urgent-sesh" variant="success" size="lg">Urgent Sesh</Button>
       </Row>

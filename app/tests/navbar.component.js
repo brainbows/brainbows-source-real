@@ -72,7 +72,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#leaderboard-nav');
+    await testController.click('#leaderboard');
   }
 
   async gotoOfficeHoursPage(testController) {
@@ -80,7 +80,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#list-OfficeHours-nav');
+    await testController.click('#list-office-hours');
   }
 
   async gotoCalendarPage(testController) {
@@ -88,7 +88,7 @@ class NavBar {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click('#calendar-nav');
+    await testController.click('#calendar');
   }
 
   async gotoNotificationPage(testController) {

@@ -13,7 +13,7 @@ const Leaderboard = () => {
   }, []);
 
   return (
-    <div>
+    <div id="leaderboard">
       <h1>Leaderboard</h1>
       <table className="leaderboard-table">
         <thead>

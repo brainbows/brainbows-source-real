@@ -11,6 +11,8 @@ import { matchPage } from './match.page';
 import { notifPage } from './notification.page';
 import { urgentPage } from './urgent.page';
 import { recruitPage } from './recruit.page';
+import { goalsPage } from './goals.page';
+import { addGoalsPage } from './addgoals.page';
 
 /* global fixture:false, test:false */
 
@@ -37,24 +39,6 @@ test('Test that the user home page shows up', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoUserHomePage(testController);
   await userHomePage.isDisplayed(testController);
-});
-test('Test that the leaderboard page shows up', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoLeaderboardPage(testController);
-  await leaderboardPage.isDisplayed(testController);
-});
-test('Test that the calendar page shows up', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoCalendarPage(testController);
-  await calendarPage.isDisplayed(testController);
-});
-test('Test that the office hours page shows up', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoOfficeHoursPage(testController);
-  await officeHoursPage.isDisplayed(testController);
 });
 test('Test that the edit page shows up', async (testController) => {
   await navBar.gotoSignInPage(testController);
@@ -91,4 +75,39 @@ test('Test that the recruit page shows up', async (testController) => {
   await navBar.gotoMatchPage(testController);
   await matchPage.gotoRecruitPage(testController);
   await recruitPage.isDisplayed(testController);
+});
+
+test('Test that the calendar page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoCalendarPage(testController);
+  await calendarPage.isDisplayed(testController);
+});
+
+test('Test that the office hours page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoOfficeHoursPage(testController);
+  await officeHoursPage.isDisplayed(testController);
+});
+
+test('Test that the leaderboard page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoLeaderboardPage(testController);
+  await leaderboardPage.isDisplayed(testController);
+});
+
+test('Test that the goals page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoUserHomePage(testController);
+  await goalsPage.isDisplayed(testController);
+});
+
+test('Test that the add goals page shows up', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoUserHomePage(testController);
+  await addGoalsPage.isDisplayed(testController);
 });

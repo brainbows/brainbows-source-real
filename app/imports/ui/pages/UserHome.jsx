@@ -57,7 +57,7 @@ const UserHome = () => {
               <h4>Calendar</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="calendar">View Calendar</Button>
+              <Link id="calendar" to="/calendar"><Button>View Calendar</Button></Link>
             </Card.Body>
           </Card>
         </Col>
@@ -70,7 +70,7 @@ const UserHome = () => {
               <h4>Office Hours</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="list-office-hours">Office Hours</Button>
+              <Button id="list-office-hours" href="list-office-hours">Office Hours</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -82,7 +82,7 @@ const UserHome = () => {
               <h4>Leaderboard</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="leaderboard">View Leaderboard</Button>
+              <Button id="leaderboard" href="leaderboard">View Leaderboard</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -94,7 +94,7 @@ const UserHome = () => {
               <h4>Goals</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="viewgoals">View Goals</Button>
+              <Button id="goals" href="viewgoals">View Goals</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -107,7 +107,7 @@ const UserHome = () => {
               <h4>Create Goals</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="goals">Create Goals</Button>
+              <Button id="add-goals" href="goals">Create Goals</Button>
             </Card.Body>
           </Card>
         </Col>
