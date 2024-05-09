@@ -3,6 +3,7 @@ import { Students } from '../../api/student/Student';
 import { Professors } from '../../api/professor/Professor';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
+import { Events } from '../../api/stuff/Events';
 
 /* eslint-disable no-console */
 
@@ -12,11 +13,24 @@ const addStudent = (student) => {
   Students.collection.insert(student);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the StudentsCollection if empty.
 if (Students.collection.find().count() === 0) {
   if (Meteor.settings.defaultStudents) {
     console.log('Creating default Students.');
     Meteor.settings.defaultStudents.forEach(student => addStudent(student));
+  }
+}
+
+const addEvent = (event) => {
+  console.log(`  Adding: ${event.title} (${event.owner})`);
+  Events.collection.insert(event);
+};
+
+// Initialize the EventsCollection if empty.
+if (Events.collection.find().count() === 0) {
+  if (Meteor.settings.defaultEvents) {
+    console.log('Creating default events.');
+    Meteor.settings.defaultEvents.forEach(event => addEvent(event));
   }
 }
 

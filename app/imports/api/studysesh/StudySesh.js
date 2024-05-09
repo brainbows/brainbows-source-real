@@ -2,20 +2,26 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The StuffsCollection. It encapsulates state and variable values for stuff.
+ * The StudentsCollection. It encapsulates state and variable values for students.
  */
-class StuffsCollection {
+class StudySeshCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'StuffsCollection';
+    this.name = 'StudySeshCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      title: String,
+      sensei: String,
+      grasshopper: String,
+      owner: String,
+      course: {
+        type: String,
+        allowedValues: ['ICS 101', 'ICS 110P', 'ICS 111', 'ICS 141', 'ICS 211', 'ICS 241'],
+      },
+      topic: String,
       startTime: String,
       endTime: String,
-      description: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -27,6 +33,6 @@ class StuffsCollection {
 
 /**
  * The singleton instance of the StuffsCollection.
- * @type {StuffsCollection}
+ * @type {UrgentCollection}
  */
-export const Stuffs = new StuffsCollection();
+export const StudySesh = new StudySeshCollection();
