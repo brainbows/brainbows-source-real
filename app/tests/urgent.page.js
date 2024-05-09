@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class OfficeHoursPage {
+class UrgentPage {
   constructor() {
-    this.pageId = '#list-office-hours';
+    this.pageId = '#urgent-sesh';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -12,4 +12,4 @@ class OfficeHoursPage {
   }
 }
 
-export const officeHoursPage = new OfficeHoursPage();
+export const urgentPage = new UrgentPage();

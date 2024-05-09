@@ -15,7 +15,7 @@ const Footer = () => (
         University of Hawaii at Manoa
         {' '}
         <br />
-        Project Homepage
+        <a href="https://brainbows.github.io/">Project Homepage</a>
         {' '}
         <hr />
         <Row>

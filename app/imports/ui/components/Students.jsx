@@ -29,7 +29,7 @@ const Student = ({ students }) => {
           </Link>
         </Card.Body>
         <Card.Footer className="d-grid fluid">
-          <Link to={`/add-sesh/${students._id}`}><Button type="submit">Recruit!!!</Button></Link>
+          <Link to={`/add-sesh/${students._id}`}><Button id="recruit" type="submit">Recruit!!!</Button></Link>
         </Card.Footer>
       </Card>
     </Col>

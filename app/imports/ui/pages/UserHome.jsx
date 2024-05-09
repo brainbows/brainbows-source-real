@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
-import { PersonFill, PeopleFill, CalendarFill, CheckLg, BarChartLineFill } from 'react-bootstrap-icons';
+import { PersonFill, PeopleFill, CalendarFill, CheckLg, BarChartLineFill, PersonWorkspace } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -46,7 +46,7 @@ const UserHome = () => {
               <h4>Match</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="listStudent">Find other Study Buddies</Button>
+              <Button id="match" href="listStudent">Find other Study Buddies</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -57,7 +57,7 @@ const UserHome = () => {
               <h4>Calendar</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="calendar">View Calendar</Button>
+              <Link id="calendar" to="/calendar"><Button>View Calendar</Button></Link>
             </Card.Body>
           </Card>
         </Col>
@@ -66,11 +66,11 @@ const UserHome = () => {
         <Col xs={4}>
           <Card>
             <Card.Header>
-              <CalendarFill size={100} />
+              <PersonWorkspace size={100} />
               <h4>Office Hours</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="list-office-hours">Office Hours</Button>
+              <Button id="list-office-hours" href="list-office-hours">View Office Hours</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -82,7 +82,7 @@ const UserHome = () => {
               <h4>Leaderboard</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="leaderboard">View Leaderboard</Button>
+              <Button id="leaderboard" href="leaderboard">View Leaderboard</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -94,7 +94,7 @@ const UserHome = () => {
               <h4>Goals</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="viewgoals">View Goals</Button>
+              <Button id="goals" href="viewgoals">View Goals</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -107,7 +107,7 @@ const UserHome = () => {
               <h4>Create Goals</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="goals">Create Goals</Button>
+              <Button id="add-goals" href="goals">Create Goals</Button>
             </Card.Body>
           </Card>
         </Col>

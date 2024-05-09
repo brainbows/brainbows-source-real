@@ -1,8 +1,8 @@
 import { Selector } from 'testcafe';
 
-class OfficeHoursPage {
+class AddGoalsPage {
   constructor() {
-    this.pageId = '#list-office-hours';
+    this.pageId = '#add-goals';
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -12,4 +12,4 @@ class OfficeHoursPage {
   }
 }
 
-export const officeHoursPage = new OfficeHoursPage();
+export const addGoalsPage = new AddGoalsPage();
