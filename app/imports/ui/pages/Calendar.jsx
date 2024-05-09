@@ -5,6 +5,7 @@ import interactionPlugin from '@fullcalendar/interaction';
 /* import SimpleSchema from 'simpl-schema';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor'; */
+import { Tracker } from 'meteor/tracker';
 import EventMod from './EventMod';
 import { Events } from '../../api/stuff/Events';
 
@@ -39,19 +40,28 @@ const Calendar = () => {
     const minutes = (intNum % 2) * 30;
 
     // Time String
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+    const date = new Date();
+    date.setHours(hours, minutes);
+    return date.toISOString();
   };
 
   useEffect(() => {
-    const stuffs = Events.collection.find().fetch();
+    let computation;
+    Tracker.autorun((c) => {
+      computation = c;
+      const stuffs = Events.collection.find().fetch();
 
-    const FormattedEvents = stuffs.map(stuff => ({
-      title: stuff.title,
-      start: new Date(`1970-01-01T${numberToTime(stuff.startTime, false)}:00`),
-      end: new Date(`1970-01-01T${numberToTime(stuff.endTime, true)}:00`),
-    }));
+      const FormattedEvents = stuffs.map(stuff => ({
+        title: stuff.title,
+        start: new Date(`1970-01-01T${numberToTime(stuff.startTime, false)}:00`),
+        end: new Date(`1970-01-01T${numberToTime(stuff.endTime, true)}:00`),
+      }));
 
-    setEvents(FormattedEvents);
+      setEvents(FormattedEvents);
+    });
+
+    // Clean up the computation when the component is unmounted
+    return () => computation && computation.stop();
   }, []);
 
   const handleDateClick = () => {
@@ -68,7 +78,14 @@ const Calendar = () => {
         weekends
         events={events}
       />
-      <EventMod isOpen={openMod} onClose={() => setOpenMod(false)} />
+      <EventMod
+        isOpen={openMod}
+        onClose={() => setOpenMod(false)}
+        onSubmit={(newEvent) => {
+          // Update the events state with the new event
+          setEvents((prevEvents) => [...prevEvents, newEvent]);
+        }}
+      />
     </div>
   );
 };

@@ -1,14 +1,11 @@
 import { AutoForm, TextField, LongTextField, SelectField, SubmitField } from 'uniforms-bootstrap4';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Modal } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import FullCalendar from '@fullcalendar/react';
 import { Events } from '../../api/stuff/Events';
 
 const formSchema = new SimpleSchema({
@@ -23,7 +20,30 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 const EventMod = ({ isOpen, onClose, onSubmit }) => {
-  const handleSubmit = (data, form) => {
+
+  const formRef = useRef(null);
+
+  // Convert numbers to time
+  const numberToTime = (num, isEndTime) => {
+    // Convert string to int
+    const intNum = parseInt(num, 10);
+
+    // Calculation of hours and minutes
+    let hours;
+    if (isEndTime) {
+      hours = Math.floor((intNum - 20) / 2) + 8;
+    } else {
+      hours = Math.floor((intNum - 1) / 2) + 8;
+    }
+    const minutes = (intNum % 2) * 30;
+
+    // Time String
+    const date = new Date();
+    date.setHours(hours, minutes);
+    return date.toISOString();
+  };
+
+  const handleSubmit = (data) => {
     const { title, startTime, endTime, description } = data;
     const owner = Meteor.user().username;
     Events.collection.insert(
@@ -33,20 +53,12 @@ const EventMod = ({ isOpen, onClose, onSubmit }) => {
           swal('Error', error.message, 'error');
         } else {
           swal('Success', 'Item added successfully', 'success');
-          form.resetModel();
-          onSubmit(data);
-
-          const calendarEvents = document.getElementById('calendar-page');
-          const calendar = new FullCalendar.Calendar(calendarEvents, {
-            plugins: [dayGridPlugin, interactionPlugin],
-            initialView: 'dayGridMonth',
-            weekends: true,
-            events: [
-              // Other events...
-              { title, startTime, endTime },
-            ],
+          formRef.current.reset();
+          onSubmit({
+            title,
+            start: new Date(`1970-01-01T${numberToTime(startTime, false)}:00`),
+            end: new Date(`1970-01-01T${numberToTime(endTime, true)}:00`),
           });
-          calendar.render();
         }
       },
     );
@@ -62,7 +74,7 @@ const EventMod = ({ isOpen, onClose, onSubmit }) => {
         <Modal.Title>Create StudySesh</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <AutoForm schema={bridge} onSubmit={handleSubmit}>
+        <AutoForm ref={formRef} schema={bridge} onSubmit={handleSubmit}>
           <TextField name="title" placeholder="Enter Event Title" />
           <SelectField
             name="startTime"
