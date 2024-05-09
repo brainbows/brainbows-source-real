@@ -1,34 +1,43 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Trash } from 'react-bootstrap-icons';
 import { Goals } from '../../api/goals/Goals';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const ViewGoals = () => {
   const { goals, ready } = useTracker(() => {
-    const noDataAvailable = { goals: [] };
-    const handler = Meteor.subscribe('goals');
-    if (!handler.ready()) {
-      return noDataAvailable;
-    }
+    const subscription = Meteor.subscribe(Goals.userPublicationName);
+    const rdy = subscription.ready();
     const fetchedGoals = Goals.collection.find().fetch();
-    return { goals: fetchedGoals };
+    return {
+      goals: fetchedGoals,
+      ready: rdy,
+    };
   });
 
-  if (!ready) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <div>
+  return (ready ? (
+    <Container className="fluid justify-content-center">
       <h2 id="page-titles">View Goals</h2>
-      {goals.map((goal) => (
+      <Row>{goals.map((goal) => (
         <div key={goal._id}>
-          <h3>Short Term Goal: {goal.shortTermGoal}</h3>
-          <h3>Long Term Goal: {goal.longTermGoal}</h3>
+          <Card>
+            <Col>
+              <h3>Short Term Goal: {goal.shortTermGoal}</h3>
+              <h3>Long Term Goal: {goal.longTermGoal}</h3>
+            </Col>
+            <Col>
+              <Button variant="danger" onClick={() => Goals.collection.remove({ _id: goal._id })}>
+                <Trash />
+              </Button>
+            </Col>
+          </Card>
         </div>
       ))}
-    </div>
-  );
+      </Row>
+    </Container>
+  ) : <LoadingSpinner />);
 };
 
 export default ViewGoals;
