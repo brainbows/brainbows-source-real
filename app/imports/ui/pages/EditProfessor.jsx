@@ -11,14 +11,14 @@ import LoadingSpinner from '../components/LoadingSpinner';
 
 const bridge = new SimpleSchema2Bridge(Professors.schema);
 
-/* Renders the EditStuff page for editing a single document. */
+/* Renders the EditProfessor page for editing a single document. */
 const EditProfessor = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
   // console.log('EditStuff', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
-    // Get access to Stuff documents.
+    // Get access to professor documents.
     const subscription = Meteor.subscribe(Professors.generalPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
@@ -42,7 +42,7 @@ const EditProfessor = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Edit Stuff</h2></Col>
+          <Col className="text-center"><h2>Edit Professor</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>

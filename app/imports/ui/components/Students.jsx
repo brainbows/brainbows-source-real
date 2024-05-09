@@ -4,7 +4,7 @@ import { Badge, Button, Card, Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Rating from './rating';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Students table. */
 const Student = ({ students }) => {
   const [rating, setRating] = useState(null);
   const handleRatingChange = (newRating) => {

@@ -8,7 +8,7 @@ import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker'; */
 import { Modal, Button } from 'react-bootstrap';
 import EventMod from './EventMod';
-import { Events } from '../../api/stuff/Events';
+import { Events } from '../../api/events/Events';
 
 /* const EventSchema = new SimpleSchema({
   title: String,

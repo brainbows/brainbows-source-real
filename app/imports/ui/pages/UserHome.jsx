@@ -13,12 +13,12 @@ const UserHome = () => {
   const { ready, student } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
+    // Get access to Student documents.
     const subscription = Meteor.subscribe(Students.userPublicationName);
     const owner = Meteor.user().username;
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    // Get the Stuff documents
+    // Get the Student documents
     const studentItems = Students.collection.findOne({ owner: owner });
     return {
       student: studentItems,

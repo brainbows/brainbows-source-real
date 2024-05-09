@@ -38,7 +38,7 @@ function getSenseiData(course) {
   return senseis;
 }
 
-/* Renders the AddStuff page for adding a document. */
+/* Renders the AddSesh page for adding a document. */
 const AddUrgentSesh = () => {
   const { ready } = useTracker(() => {
     const sub = Meteor.subscribe(Students.generalPublicationName);
