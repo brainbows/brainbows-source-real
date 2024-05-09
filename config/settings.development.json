@@ -1,7 +1,18 @@
 {
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "john@foo.com", "password": "changeme" },
+    { "email": "steve@foo.com", "password": "changeme" },
+    { "email": "joseph@foo.com", "password": "changeme" },
+    { "email": "morise@foo.com", "password": "changeme" },
+    { "email": "hannah@foo.com", "password": "changeme" },
+    { "email": "stark@foo.com", "password": "changeme" },
+    { "email": "nodari@foo.com", "password": "changeme" },
+    { "email": "cam@foo.com", "password": "changeme" },
+    { "email": "sebastian@foo.com", "password": "changeme" },
+    { "email": "hingle@foo.com", "password": "changeme" },
+    { "email": "jackmerius@foo.com", "password": "changeme" },
+    { "email": "adam@foo.com", "password": "changeme" }
   ],
 
   "defaultStudents": [
@@ -10,7 +21,7 @@
       "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler", "ratings": 5
     },
     {
-      "name": "steve blemming", "owner": "admin@foo.com", "image": "https://i.imgflip.com/7iskwn.png",
+      "name": "steve blemming", "owner": "steve@foo.com", "image": "https://i.imgflip.com/7iskwn.png",
       "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "filler", "ratings": 3
     },
     {
@@ -18,43 +29,43 @@
       "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"], "description": "admin", "ratings": 5
     },
     {
-      "name": "Joseph Joe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Joseph Joe","owner": "joseph@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Freshman", "grasshopper": ["ICS 111"], "sensei": ["ICS 101"], "description": "filler", "ratings": 3
     },
     {
-      "name": "Morise Williamson","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Morise Williamson","owner": "morise@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Junior", "grasshopper": ["ICS 241"], "sensei": ["ICS 211"], "description": "filler", "ratings": 2
     },
     {
-      "name": "Hannah Kae","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Hannah Kae","owner": "hannah@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Senior", "grasshopper": ["ICS 241"], "sensei": ["ICS 211"], "description": "filler", "ratings": 1
     },
     {
-      "name": "Stark Tony","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Stark Tony","owner": "stark@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Freshman", "grasshopper": ["ICS 110P"], "sensei": ["ICS 101"], "description": "filler", "ratings": 3
     },
     {
-      "name": "Nodari Sitchnava","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Nodari Sitchnava","owner": "nodari@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Sophomore", "grasshopper": ["ICS 141"], "sensei": ["ICS 111"], "description": "filler", "ratings": 5
     },
     {
-      "name": "Cam Moore","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Cam Moore","owner": "cam@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Junior", "grasshopper": ["ICS 211"], "sensei": ["ICS 241"], "description": "filler", "ratings": 4
     },
     {
-      "name": "Sebastian Dinglebottom","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Sebastian Dinglebottom","owner": "sebastian@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Freshman", "grasshopper": ["ICS 111"], "sensei": ["ICS 110P"], "description": "filler", "ratings": 1
     },
     {
-      "name": "Hingle McCringleberry","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Hingle McCringleberry","owner": "hingle@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Junior", "grasshopper": ["ICS 241"], "sensei": ["ICS 211"], "description": "filler", "ratings": 5
     },
     {
-      "name": "Jackmerius Tacktheritrix","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Jackmerius Tacktheritrix","owner": "jackmerius@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Sophomore", "grasshopper": ["ICS 141"], "sensei": ["ICS 111"], "description": "filler", "ratings": 2
     },
     {
-      "name": "Adam Rizzington","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Adam Rizzington","owner": "adam@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Senior", "grasshopper": ["ICS 241"], "sensei": ["ICS 110P"], "description": "filler", "ratings": 3
     }
   ],
