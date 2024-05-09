@@ -94,7 +94,20 @@ const UserHome = () => {
               <h4>Goals</h4>
             </Card.Header>
             <Card.Body>
-              <Button>View Goals</Button>
+              <Button href="viewgoals">View Goals</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+      <Row id="user-cards" className="align-middle text-center justify-content-center p-5">
+        <Col xs={4}>
+          <Card>
+            <Card.Header>
+              <ClockHistory size={100} />
+              <h4>Create Goals</h4>
+            </Card.Header>
+            <Card.Body>
+              <Button href="goals">Create Goals</Button>
             </Card.Body>
           </Card>
         </Col>
