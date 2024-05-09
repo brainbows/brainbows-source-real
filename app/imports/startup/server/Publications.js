@@ -7,6 +7,7 @@ import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 import { Goals } from '../../api/goals/Goals';
 import { StudySesh } from '../../api/studysesh/StudySesh';
 import { StudyNotification } from '../../api/studynotif/StudyNotif';
+import { Events } from '../../api/stuff/Events';
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.
@@ -62,6 +63,25 @@ Meteor.publish(UrgentSesh.userPublicationName, function () {
 Meteor.publish(UrgentSesh.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return UrgentSesh.collection.find();
+  }
+  return this.ready();
+});
+
+// User-level publication.
+// If logged in, then publish documents owned by this user. Otherwise, publish nothing.
+Meteor.publish(Events.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Events.collection.find({ owner: username });
+  }
+  return this.ready();
+});
+
+// Admin-level publication.
+// If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
+Meteor.publish(Events.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Events.collection.find();
   }
   return this.ready();
 });
