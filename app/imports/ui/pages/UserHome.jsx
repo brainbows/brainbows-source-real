@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
-import { PersonFill, PeopleFill, CalendarFill, CheckLg, BarChartLineFill } from 'react-bootstrap-icons';
+import { PersonFill, PeopleFill, CalendarFill, CheckLg, BarChartLineFill, PersonWorkspace } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -66,11 +66,11 @@ const UserHome = () => {
         <Col xs={4}>
           <Card>
             <Card.Header>
-              <CalendarFill size={100} />
+              <PersonWorkspace size={100} />
               <h4>Office Hours</h4>
             </Card.Header>
             <Card.Body>
-              <Button href="list-office-hours">Office Hours</Button>
+              <Button href="list-office-hours">View Office Hours</Button>
             </Card.Body>
           </Card>
         </Col>
