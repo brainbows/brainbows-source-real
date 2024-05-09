@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
-import { PersonFill, PeopleFill, CalendarFill, GearFill, ClockHistory, CheckLg } from 'react-bootstrap-icons';
+import { PersonFill, PeopleFill, CalendarFill, ClockHistory, CheckLg } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -57,7 +57,7 @@ const UserHome = () => {
               <h4>Calendar</h4>
             </Card.Header>
             <Card.Body>
-              <Button>View Calendar</Button>
+              <Button href="calendar">View Calendar</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -66,11 +66,11 @@ const UserHome = () => {
         <Col xs={4}>
           <Card>
             <Card.Header>
-              <GearFill size={100} />
-              <h4>Settings</h4>
+              <CalendarFill size={100} />
+              <h4>Office Hours</h4>
             </Card.Header>
             <Card.Body>
-              <Button>Change Settings</Button>
+              <Button href="list-office-hours">Office Hours</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -79,10 +79,10 @@ const UserHome = () => {
           <Card>
             <Card.Header>
               <ClockHistory size={100} />
-              <h4>History</h4>
+              <h4>Leaderboard</h4>
             </Card.Header>
             <Card.Body>
-              <Button>View past sessions</Button>
+              <Button href="leaderboard">View Leaderboard</Button>
             </Card.Body>
           </Card>
         </Col>
