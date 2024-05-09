@@ -28,7 +28,7 @@ const ListStudentsAdmin = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>List Students</h2>
+            <h2 id="page-titles">List Students</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
             {students.map((student) => (<Col key={student._id}><StudentsAdmin studentsAdmin={student} /></Col>))}

@@ -32,7 +32,7 @@ const OfficeHours = () => {
       <Row className="justify-content-center">
         <Col md={7}>
           <Col className="text-center">
-            <h2>Office Hours</h2>
+            <h2 id="page-titles">Office Hours</h2>
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Button href="/add-professor" variant="success" size="lg">Add Professor</Button>
             ) : ''}
