@@ -19,7 +19,8 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-const EventMod = ({ isOpen, onClose, onSubmit }) => {
+// eslint-disable-next-line react/prop-types
+const EventMod = ({ isOpen, onClose, onSubmit, clickedDate }) => {
 
   const formRef = useRef(null);
 
@@ -38,16 +39,18 @@ const EventMod = ({ isOpen, onClose, onSubmit }) => {
     const minutes = (intNum % 2) * 30;
 
     // Time String
-    const date = new Date();
-    date.setHours(hours, minutes);
-    return date.toISOString();
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
   };
 
   const handleSubmit = (data) => {
     const { title, startTime, endTime, description } = data;
     const owner = Meteor.user().username;
+
+    // Use the clicked date when creating a new event
+    const start = new Date(`${clickedDate}T${numberToTime(startTime, false)}:00Z`);
+    const end = new Date(`${clickedDate}T${numberToTime(endTime, true)}:00Z`);
     Events.collection.insert(
-      { title, startTime, endTime, description, owner },
+      { title, startTime: start, endTime: end, description, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -56,8 +59,9 @@ const EventMod = ({ isOpen, onClose, onSubmit }) => {
           formRef.current.reset();
           onSubmit({
             title,
-            start: new Date(`1970-01-01T${numberToTime(startTime, false)}:00`),
-            end: new Date(`1970-01-01T${numberToTime(endTime, true)}:00`),
+            start: new Date(`${clickedDate}T${numberToTime(startTime, false)}:00`),
+            end: new Date(`${clickedDate}T${numberToTime(endTime, true)}:00`),
+            description,
           });
         }
       },
