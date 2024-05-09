@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
-import { PersonFill, PeopleFill, CalendarFill, GearFill, ClockHistory, CheckLg } from 'react-bootstrap-icons';
+import { PersonFill, PeopleFill, CalendarFill, ClockHistory, CheckLg } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
