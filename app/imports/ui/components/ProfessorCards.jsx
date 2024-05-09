@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Link } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 
-/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+/** Renders a single row in the List Professors table */
 const ProfessorCards = ({ professor }) => (
   <Col className="h-100">
     <Card className="h-100">

@@ -7,7 +7,7 @@ import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
 import { Goals } from '../../api/goals/Goals';
 import { StudySesh } from '../../api/studysesh/StudySesh';
 import { StudyNotification } from '../../api/studynotif/StudyNotif';
-import { Events } from '../../api/stuff/Events';
+import { Events } from '../../api/events/Events';
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.

@@ -108,18 +108,18 @@ StudyCard.propTypes = {
   }).isRequired,
 };
 
-/* Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/* Renders a table containing all of the Notification documents. Use <NotificationItem> to render each row. */
 const ListNotifications = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, urgentNotifs, studyNotifs } = useTracker(() => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
-    // Get access to Stuff documents.
+    // Get access to Notification documents.
     const subscription = Meteor.subscribe(UrgentNotification.userPublicationName);
     const sub2 = Meteor.subscribe(StudyNotification.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready() && sub2.ready();
-    // Get the Stuff documents
+    // Get the Notification documents
     const urgentNotifItems = UrgentNotification.collection.find({}).fetch();
     const studyNotifItems = StudyNotification.collection.find({}).fetch();
     return {

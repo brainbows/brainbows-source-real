@@ -3,7 +3,7 @@ import { Students } from '../../api/student/Student';
 import { Professors } from '../../api/professor/Professor';
 import { UrgentSesh } from '../../api/urgent/Urgent';
 import { UrgentNotification } from '../../api/urgent-notif/UrgentNotif';
-import { Events } from '../../api/stuff/Events';
+import { Events } from '../../api/events/Events';
 
 /* eslint-disable no-console */
 
@@ -39,7 +39,7 @@ const addProfessor = (professor) => {
   Professors.collection.insert(professor);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the StudentsCollection if empty.
 if (Professors.collection.find().count() === 0) {
   if (Meteor.settings.defaultProfessors) {
     console.log('Creating default Professors.');
@@ -52,7 +52,7 @@ const addUrgent = (urgent) => {
   UrgentSesh.collection.insert(urgent);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the StudentsCollection if empty.
 if (UrgentSesh.collection.find().count() === 0) {
   if (Meteor.settings.defaultUrgent) {
     console.log('Creating default Urgent Sessions.');
@@ -65,7 +65,7 @@ const addUrgentNotif = (urgentNotif) => {
   UrgentNotification.collection.insert(urgentNotif);
 };
 
-// Initialize the StuffsCollection if empty.
+// Initialize the StudentsCollection if empty.
 if (UrgentNotification.collection.find().count() === 0) {
   if (Meteor.settings.defaultUrgentNotification) {
     console.log('Creating default Urgent Notifications.');

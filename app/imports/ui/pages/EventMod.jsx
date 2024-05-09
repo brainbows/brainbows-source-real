@@ -6,7 +6,7 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import { Events } from '../../api/stuff/Events';
+import { Events } from '../../api/events/Events';
 
 const formSchema = new SimpleSchema({
   title: String,
