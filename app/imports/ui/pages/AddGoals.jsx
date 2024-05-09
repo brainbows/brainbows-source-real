@@ -41,7 +41,7 @@ const AddGoal = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Goal</h2></Col>
+          <Col className="text-center"><h2 id="page-titles">Add Goal</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>

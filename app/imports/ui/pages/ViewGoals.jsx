@@ -20,7 +20,7 @@ const ViewGoals = () => {
 
   return (
     <div>
-      <h2>View Goals</h2>
+      <h2 id="page-titles">View Goals</h2>
       {goals.map((goal) => (
         <div key={goal._id}>
           <h3>Short Term Goal: {goal.shortTermGoal}</h3>

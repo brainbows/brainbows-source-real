@@ -10,7 +10,7 @@
       "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler", "ratings": 5
     },
     {
-      "name": "steve fart", "owner": "admin@foo.com", "image": "https://i.imgflip.com/7iskwn.png",
+      "name": "steve blemming", "owner": "admin@foo.com", "image": "https://i.imgflip.com/7iskwn.png",
       "level": "Sophomore", "grasshopper": ["ICS 211"], "sensei": ["ICS 111"], "description": "filler", "ratings": 5
     },
     {
@@ -18,7 +18,7 @@
       "level": "Freshman", "grasshopper": ["ICS 211", "ICS 241"], "sensei": ["ICS 110P"], "description": "admin", "ratings": 5
     },
     {
-      "name": "dixon yamada","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
+      "name": "Joseph Joe","owner": "john@foo.com", "image": "https://github.com/philipmjohnson.png",
       "level": "Freshman", "grasshopper": ["ICS 211"], "sensei": ["ICS 211"], "description": "filler", "ratings": 4
     }
   ],

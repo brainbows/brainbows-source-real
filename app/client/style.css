@@ -16,6 +16,10 @@ body {
   background: fixed center no-repeat #135213 !important;
 }
 
+h2 {
+  color: white;
+}
+
 /* Set the alert background on the signin and signup pages. */
 #signin-page .alert-light, #signup-page .alert-light {
   --bs-alert-bg: var(--matr-navbar-bg);
@@ -54,6 +58,10 @@ body {
 #landing-title {
   font-family: VarelaRound, OpenSans;
   font-size: 80px;
+}
+
+#page-titles {
+  color: white;
 }
 
 #edit-title {

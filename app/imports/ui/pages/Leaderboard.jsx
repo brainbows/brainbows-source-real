@@ -13,8 +13,9 @@ const Leaderboard = () => {
   }, []);
 
   return (
+
     <div id="leaderboard">
-      <h1>Leaderboard</h1>
+      <h1 id="page-titles">Leaderboard</h1>
       <table className="leaderboard-table">
         <thead>
           <tr>
