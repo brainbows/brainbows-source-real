@@ -36,9 +36,11 @@ const Rating = ({ id, defaultValue, onChange }) => {
     return total / ratings.length;
   };
 
-  const handleRefreshAverage = () => {
+  const handleRefreshAverage = (event) => {
+    event.preventDefault(); // Prevent form submission
     // Clear ratings and localStorage
     setRatings([]);
+    setValue(0); // Reset the value to 0
     const updatedLocalStorage = { ...JSON.parse(localStorage.getItem('ratings')), [id]: [] };
     delete updatedLocalStorage[id];
     localStorage.setItem('ratings', JSON.stringify(updatedLocalStorage));
@@ -74,8 +76,7 @@ const Rating = ({ id, defaultValue, onChange }) => {
           })}
         </div>
         <button type="submit">Submit</button>
-        {/* eslint-disable-next-line react/button-has-type */}
-        <button onClick={handleRefreshAverage}>Clear and Reset Average</button>
+        <button type="button" onClick={handleRefreshAverage}>Clear and Reset Average</button>
       </form>
       <div>
         <h2>Rating:</h2>

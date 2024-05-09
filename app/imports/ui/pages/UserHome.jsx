@@ -62,7 +62,6 @@ const UserHome = () => {
           </Card>
         </Col>
       </Row>
-
       <Row id="user-cards" className="align-middle text-center justify-content-center p-5">
         <Col xs={4}>
           <Card>
